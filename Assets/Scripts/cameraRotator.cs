@@ -11,13 +11,12 @@ public class cameraRotator : MonoBehaviour
 	public PlayerInput playerInput;
 	public bool sound;
 	public AudioSource cameraRot;
-	public ParticleSystem YAxisBlockingParticles;
+	public GameObject yAxisParticlesPrefab, drone;
 	
 	private InputAction rmb, mmb;
 	//cameraPostPity is amount of frames script still plays sound of camera rotating after player has stopped rotating camera. Its purpose is to make that sound smoother and keep playing it even when there is a slight pause between changeing rotations of camera.
 	private int cameraPostPity;
 	private Quaternion oldRot;
-	private int particlesRateOverTime = 150;
 	
     // Start is called before the first frame update
     void Start()
@@ -36,13 +35,12 @@ public class cameraRotator : MonoBehaviour
 		float RMB = rmb.ReadValue<float>();
 		float MMB = mmb.ReadValue<float>();
 		float mult = 150f;
-		var YAEmission = YAxisBlockingParticles.emission;
 		Vector3 rot = gameObject.transform.localEulerAngles;
 		if (RMB > 0.0f) {
 			Vector3 newRot = rot;
 			newRot.y += targetMouseDelta.x*mult;
 			newRot.x += targetMouseDelta.y*-mult;
-			// did camera even moved?
+			// if camera moved
 			if (rot != newRot) {
 				//camera is not allowed to turn 360 degrees by any axis, so rotation of camera is limited to this number
 				float rad = 90f;
@@ -55,10 +53,13 @@ public class cameraRotator : MonoBehaviour
 				// If player attempts to look turn camera too far to the side this check prevents it
 				if (rodOff.x < upLowBorder  && rodOff.x > -upLowBorder  && (rodOff.x) * (rodOff.x) + (rodOff.y) * (rodOff.y) <= rad * rad) {
 					gameObject.transform.localEulerAngles = newRot;
-					YAEmission.rateOverTime = 0;
 				} else {
-					YAEmission.rateOverTime = particlesRateOverTime;
-					// YAxisBlockingParticles.transform.LookAt(transform.position);
+					//Camera attempted to turn to a wrong angle. create particle effect that lets player know they can't do that.
+					//yoink mine now
+					Vector3 particlePos = (this.transform.forward * 10) + this.transform.position;
+					Transform currentParticleSystem = Instantiate(yAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform).transform;
+					currentParticleSystem.LookAt(this.gameObject.transform);
+					// todo: change cameraBordersParticles to make particles go up and not towards the drone
 					// todo: git: library folder is important, push it somehow/find important parts.
 					// todo: figure out how to move YAxisBlockingParticles.transform without raycast; find better particle effects, reverse gravity when camera looking down, disable/enable/clear particles, 
 					// create round version of particle effect and put it when camera is turning to the sides too much 
@@ -66,8 +67,6 @@ public class cameraRotator : MonoBehaviour
 				//todo: when offset value is out of circle create negatively looking visual effects that mask my inability to snap camera to the point on circle instead of fully negating camera movement.
 			}
 		} else if (gameObject.transform.localEulerAngles != Vector3.zero) {
-			YAxisBlockingParticles.Clear();
-			YAEmission.rateOverTime = 0;
 			//note: could be issues with warping cursor if ANYTHING else changes camera rotation
 			gameObject.transform.localEulerAngles = Vector3.zero;
 			float sw = Screen.width / 2;
