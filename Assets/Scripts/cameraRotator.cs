@@ -11,7 +11,7 @@ public class cameraRotator : MonoBehaviour
 	public PlayerInput playerInput;
 	public bool sound;
 	public AudioSource cameraRot;
-	public GameObject yAxisParticlesPrefab, drone;
+	public GameObject yAxisParticlesPrefab, xAxisParticlesPrefab, drone;
 	
 	private InputAction rmb, mmb;
 	//cameraPostPity is amount of frames script still plays sound of camera rotating after player has stopped rotating camera. Its purpose is to make that sound smoother and keep playing it even when there is a slight pause between changeing rotations of camera.
@@ -55,14 +55,20 @@ public class cameraRotator : MonoBehaviour
 					gameObject.transform.localEulerAngles = newRot;
 				} else {
 					//Camera attempted to turn to a wrong angle. create particle effect that lets player know they can't do that.
-					//yoink mine now
-					Vector3 particlePos = (this.transform.forward * 10) + this.transform.position;
-					Transform currentParticleSystem = Instantiate(yAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform).transform;
-					currentParticleSystem.LookAt(this.gameObject.transform);
-					// todo: change cameraBordersParticles to make particles go up and not towards the drone
+					if (rodOff.y > rad || rodOff.y < -rad) {
+						//too left/right
+						//todo: alighn ps with circle on screen
+						Vector3 particlePos = (this.transform.forward * 10) + this.transform.position;
+						Transform currentParticleSystem = Instantiate(xAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform).transform;
+						currentParticleSystem.LookAt(this.gameObject.transform);
+					} else {
+						//too high/low
+						Vector3 particlePos = (this.transform.forward * 10) + this.transform.position;
+						Transform currentParticleSystem = Instantiate(yAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform).transform;
+						currentParticleSystem.LookAt(this.gameObject.transform);
+					}
 					// todo: git: library folder is important, push it somehow/find important parts.
-					// todo: figure out how to move YAxisBlockingParticles.transform without raycast; find better particle effects, reverse gravity when camera looking down, disable/enable/clear particles, 
-					// create round version of particle effect and put it when camera is turning to the sides too much 
+					// create round version of particle effect and put it when camera is turning to the sides too much
 				}
 				//todo: when offset value is out of circle create negatively looking visual effects that mask my inability to snap camera to the point on circle instead of fully negating camera movement.
 			}
