@@ -11,7 +11,7 @@ public class cameraRotator : MonoBehaviour
 	public PlayerInput playerInput;
 	public bool sound;
 	public AudioSource cameraRot;
-	public GameObject yAxisParticlesPrefab, xAxisParticlesPrefab, drone;
+	public GameObject yAxisParticlesPrefab, xAxisParticlesPrefab, drone, canvas;
 	
 	private InputAction rmb, mmb;
 	//cameraPostPity is amount of frames script still plays sound of camera rotating after player has stopped rotating camera. Its purpose is to make that sound smoother and keep playing it even when there is a slight pause between changeing rotations of camera.
@@ -57,15 +57,18 @@ public class cameraRotator : MonoBehaviour
 					//Camera attempted to turn to a wrong angle. create particle effect that lets player know they can't do that.
 					if (rodOff.y > rad || rodOff.y < -rad) {
 						//too left/right
-						//todo: alighn ps with circle on screen
 						Vector3 particlePos = (this.transform.forward * 10) + this.transform.position;
-						Transform currentParticleSystem = Instantiate(xAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform).transform;
-						currentParticleSystem.LookAt(this.gameObject.transform);
+						GameObject currentParticleSystem = Instantiate(xAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform);
+						if (rodOff.y > rad) {
+							var shape = currentParticleSystem.GetComponent<ParticleSystem>().shape;
+							shape.rotation = new Vector3(0,0,270);
+						}
+						currentParticleSystem.transform.localRotation = this.transform.localRotation;
 					} else {
 						//too high/low
 						Vector3 particlePos = (this.transform.forward * 10) + this.transform.position;
-						Transform currentParticleSystem = Instantiate(yAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform).transform;
-						currentParticleSystem.LookAt(this.gameObject.transform);
+						GameObject currentParticleSystem = Instantiate(yAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform);
+						currentParticleSystem.transform.localRotation = this.transform.localRotation;
 					}
 					// todo: git: library folder is important, push it somehow/find important parts.
 					// create round version of particle effect and put it when camera is turning to the sides too much

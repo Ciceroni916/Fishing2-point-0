@@ -6900,6 +6900,7 @@ MonoBehaviour:
   yAxisParticlesPrefab: {fileID: 1404885528562893616, guid: 4e2a5288f279d204e8db1ce65f97726c, type: 3}
   xAxisParticlesPrefab: {fileID: 1476641010659892222, guid: 867d5168b120e124395a6ee4f06626a3, type: 3}
   drone: {fileID: 173311058}
+  canvas: {fileID: 1359515624}
 --- !u!82 &963194231
 AudioSource:
   m_ObjectHideFlags: 0
