@@ -15,7 +15,7 @@ C:/Users/Omni/Fishing2-point-0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57718
+64664
 Successfully changed project path to: C:/Users/Omni/Fishing2-point-0
 C:/Users/Omni/Fishing2-point-0
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Omni/Fishing2-point-0
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [1348] Host "[IP] 192.168.0.164 [Port] 0 [Flags] 2 [Guid] 1048992358 [EditorId] 1048992358 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-03CIB2U) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [18144] Host "[IP] 192.168.0.164 [Port] 0 [Flags] 2 [Guid] 3903437184 [EditorId] 3903437184 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-03CIB2U) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [1348] Host "[IP] 192.168.0.164 [Port] 0 [Flags] 2 [Guid] 1048992358 [EditorId] 1048992358 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-03CIB2U) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [18144] Host "[IP] 192.168.0.164 [Port] 0 [Flags] 2 [Guid] 3903437184 [EditorId] 3903437184 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-03CIB2U) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 7.41 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 8.81 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.17f1 (4fc78088f837)
 [Subsystems] Discovering subsystems at path D:/Code/Unity/editor/2022.3.17f1/Editor/Data/Resources/UnitySubsystems
@@ -71,46 +71,46 @@ Initialize mono
 Mono path[0] = 'D:/Code/Unity/editor/2022.3.17f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Code/Unity/editor/2022.3.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Code/Unity/editor/2022.3.17f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56596
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56752
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Code/Unity/editor/2022.3.17f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: D:/Code/Unity/editor/2022.3.17f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.004886 seconds.
-- Loaded All Assemblies, in  0.315 seconds
+Registered in 0.005290 seconds.
+- Loaded All Assemblies, in  0.307 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.261 seconds
-Domain Reload Profiling: 576ms
-	BeginReloadAssembly (92ms)
+- Finished resetting the current domain, in  0.273 seconds
+Domain Reload Profiling: 580ms
+	BeginReloadAssembly (96ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (31ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (47ms)
-	LoadAllAssembliesAndSetupDomain (135ms)
-		LoadAssemblies (91ms)
+	RebuildCommonClasses (30ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (122ms)
+		LoadAssemblies (96ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (133ms)
-			TypeCache.Refresh (131ms)
-				TypeCache.ScanAssembly (120ms)
+		AnalyzeDomain (121ms)
+			TypeCache.Refresh (119ms)
+				TypeCache.ScanAssembly (108ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (261ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (273ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (204ms)
+		SetupLoadedEditorAssemblies (218ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (9ms)
+			InitializePlatformSupportModulesInManaged (8ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (136ms)
-			ProcessInitializeOnLoadMethodAttributes (51ms)
+			ProcessInitializeOnLoadAttributes (152ms)
+			ProcessInitializeOnLoadMethodAttributes (50ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -118,53 +118,53 @@ Domain Reload Profiling: 576ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.555 seconds
-Refreshing native plugins compatible for Editor in 2.95 ms, found 2 plugins.
+- Loaded All Assemblies, in  0.658 seconds
+Refreshing native plugins compatible for Editor in 2.98 ms, found 2 plugins.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.832 seconds
-Domain Reload Profiling: 1385ms
-	BeginReloadAssembly (121ms)
+- Finished resetting the current domain, in  0.830 seconds
+Domain Reload Profiling: 1486ms
+	BeginReloadAssembly (131ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (19ms)
-	RebuildCommonClasses (29ms)
+		CreateAndSetChildDomain (20ms)
+	RebuildCommonClasses (37ms)
 	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (34ms)
-	LoadAllAssembliesAndSetupDomain (360ms)
-		LoadAssemblies (243ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (435ms)
+		LoadAssemblies (306ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (186ms)
-			TypeCache.Refresh (160ms)
-				TypeCache.ScanAssembly (148ms)
-			ScanForSourceGeneratedMonoScriptInfo (17ms)
+		AnalyzeDomain (204ms)
+			TypeCache.Refresh (171ms)
+				TypeCache.ScanAssembly (159ms)
+			ScanForSourceGeneratedMonoScriptInfo (23ms)
 			ResolveRequiredComponents (8ms)
-	FinalizeReload (832ms)
+	FinalizeReload (831ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (677ms)
+		SetupLoadedEditorAssemblies (663ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (5ms)
 			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (69ms)
-			ProcessInitializeOnLoadAttributes (548ms)
-			ProcessInitializeOnLoadMethodAttributes (49ms)
-			AfterProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (532ms)
+			ProcessInitializeOnLoadMethodAttributes (48ms)
+			AfterProcessingInitializeOnLoad (5ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (5ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
 Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 3.09 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 3.79 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4477 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 4476 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 63 unused Assets / (1.1 MB). Loaded Objects now: 4944.
 Memory consumption went from 202.7 MB to 201.6 MB.
-Total: 4.109000 ms (FindLiveObjects: 0.293100 ms CreateObjectMapping: 0.209600 ms MarkObjects: 3.313600 ms  DeleteObjects: 0.291900 ms)
+Total: 4.158500 ms (FindLiveObjects: 0.295000 ms CreateObjectMapping: 0.252200 ms MarkObjects: 3.304200 ms  DeleteObjects: 0.306200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -181,95 +181,263 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 196205.751672 seconds.
-  path: Assets/untitled(1).fbx
-  artifactKey: Guid(7d0095875164d5c418b724598b81b37a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/untitled(1).fbx using Guid(7d0095875164d5c418b724598b81b37a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd502cfb963fe4844c6806dba2dcce1f2') in 0.293533 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 8.570098 seconds.
-  path: Assets/lazerPlane1.fbx
-  artifactKey: Guid(7d0095875164d5c418b724598b81b37a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/lazerPlane1.fbx using Guid(7d0095875164d5c418b724598b81b37a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b4e6e8d441a4b04eba17427b7fceebd') in 0.021770 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 17.637221 seconds.
+  Time since last request: 273904.798629 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a0047d1915563ad590c1cbb18beae10') in 0.005044 seconds
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d4cd21ff3f35d7a1f131cd2968b7ccb') in 0.028784 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 5
 ========================================================================
 Received Import Request.
-  Time since last request: 0.546443 seconds.
-  path: Assets/New Universal Render Pipeline Asset_Renderer.asset
-  artifactKey: Guid(6e421b72c41d87544ae08aa4a929def6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/New Universal Render Pipeline Asset_Renderer.asset using Guid(6e421b72c41d87544ae08aa4a929def6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd08959109517afe700d3730af777076b') in 0.000674 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 23.281278 seconds.
+  Time since last request: 2.602932 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '616e0405ea3634b52bf22f367169522a') in 0.002116 seconds
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a19e97558a234bfd475a824aa8a1428e') in 0.002739 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 47.352655 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '021817228e2dd0cc440bd1f52601fe11') in 0.002020 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 16.429959 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1124428cb436f2b77f3e703d24691f07') in 0.002427 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 1222.576423 seconds.
+  path: Assets/plane.fbx
+  artifactKey: Guid(e46a7b40e2a40d941a1a423ace4c9c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/plane.fbx using Guid(e46a7b40e2a40d941a1a423ace4c9c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9c92e2c6bbab59e799ad0fd9065b5eb') in 0.311637 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 236.112367 seconds.
+  path: Assets/plane.fbx
+  artifactKey: Guid(e46a7b40e2a40d941a1a423ace4c9c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/plane.fbx using Guid(e46a7b40e2a40d941a1a423ace4c9c38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '094ac5ec1b701e6cadeb1a0365b6abc9') in 0.018980 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 266.926765 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01d7c325bfa593229d04085eb8c6ff63') in 0.002037 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 15.615532 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6db66d611b2e108b7401146696376d1') in 0.001934 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 543.547734 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17283f92e46f1707c3d7944d5d59c639') in 0.002383 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 49.037004 seconds.
+  path: Assets/lazerMask1.png
+  artifactKey: Guid(cd3db153498395e458049cffc2865320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/lazerMask1.png using Guid(cd3db153498395e458049cffc2865320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87081d32eff4d98f6c3180340e01c607') in 0.027484 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 79.573025 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '814d9365dee57ae47887a2b1958b0765') in 0.002131 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 492.275352 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3214f5a59cfcb35a5c28791a6b0e18b5') in 0.002390 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 30.977417 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c4237ccda3e8ada12660fd1c2434d52') in 0.001973 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 195.729055 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd7aabb813a2b5000e99219e5179b7c6') in 0.002280 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 13.558405 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85c519f2f5e2a2563ddb8e93321c9378') in 0.002210 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 17.887237 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9518073e8bcf4718f91c897f5a6ef80a') in 0.002461 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 5.145419 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4340762a0eb8a63fadd0e5d79f7584a') in 0.002126 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 11.244841 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00f0cd49fe9654beaf89b99c8b9691e0') in 0.002209 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 23.492728 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '294e12ec329b784fa735fa3215b512b2') in 0.002097 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 3.238380 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2689049b53952b4a2d47d9566f2660ab') in 0.001995 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 31.538159 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '50e4b7694a31858330b6423fcf55096d') in 0.002141 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 34.589940 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9f88b6f5acf4e1b625f532cd777f2bcb') in 0.002063 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.295582 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7418d49995e869fd4d32cb5de29cc362') in 0.002056 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 114.430921 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c94b746cc020fa1820117dc78560c850') in 0.002357 seconds
+Number of updated asset objects reloaded before import = 1
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 272.829457 seconds.
+  path: Assets/white_32x32.png
+  artifactKey: Guid(af78b30489cfd1f4e8c503f6379ec762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/white_32x32.png using Guid(af78b30489cfd1f4e8c503f6379ec762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3172b5ad86d9c34f931304cb9ed117e') in 0.014639 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 85.311400 seconds.
+  path: Assets/beam.vfx
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04476c7038f0c4394093439ed7525cd0') in 0.002074 seconds
 Number of updated asset objects reloaded before import = 1
 Number of asset objects unloaded after import = 5
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.444 seconds
-Refreshing native plugins compatible for Editor in 2.81 ms, found 2 plugins.
+- Loaded All Assemblies, in  0.495 seconds
+Refreshing native plugins compatible for Editor in 3.65 ms, found 2 plugins.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.298 seconds
-Domain Reload Profiling: 1741ms
-	BeginReloadAssembly (160ms)
+- Finished resetting the current domain, in  1.416 seconds
+Domain Reload Profiling: 1909ms
+	BeginReloadAssembly (186ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (48ms)
-	RebuildCommonClasses (30ms)
+		CreateAndSetChildDomain (51ms)
+	RebuildCommonClasses (28ms)
 	RebuildNativeTypeToScriptingClass (9ms)
-	initialDomainReloadingComplete (26ms)
-	LoadAllAssembliesAndSetupDomain (216ms)
-		LoadAssemblies (275ms)
+	initialDomainReloadingComplete (27ms)
+	LoadAllAssembliesAndSetupDomain (242ms)
+		LoadAssemblies (317ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (13ms)
-			TypeCache.Refresh (4ms)
+		AnalyzeDomain (17ms)
+			TypeCache.Refresh (7ms)
 				TypeCache.ScanAssembly (0ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (8ms)
-	FinalizeReload (1299ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1416ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (631ms)
+		SetupLoadedEditorAssemblies (705ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (7ms)
 			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (64ms)
-			ProcessInitializeOnLoadAttributes (508ms)
-			ProcessInitializeOnLoadMethodAttributes (46ms)
+			BeforeProcessingInitializeOnLoad (65ms)
+			ProcessInitializeOnLoadAttributes (567ms)
+			ProcessInitializeOnLoadMethodAttributes (60ms)
 			AfterProcessingInitializeOnLoad (3ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
+		AwakeInstancesAfterBackupRestoration (12ms)
 Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
-Refreshing native plugins compatible for Editor in 3.47 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 3.63 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 4303 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 35 unused Assets / (1.1 MB). Loaded Objects now: 4997.
-Memory consumption went from 178.5 MB to 177.4 MB.
-Total: 4.567900 ms (FindLiveObjects: 0.304400 ms CreateObjectMapping: 0.261200 ms MarkObjects: 3.772100 ms  DeleteObjects: 0.229200 ms)
+Unloading 35 unused Assets / (1.1 MB). Loaded Objects now: 4999.
+Memory consumption went from 178.7 MB to 177.6 MB.
+Total: 4.888100 ms (FindLiveObjects: 0.289600 ms CreateObjectMapping: 0.264500 ms MarkObjects: 4.123400 ms  DeleteObjects: 0.209800 ms)
 
-Prepare: number of updated asset objects reloaded= 1
+Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -285,496 +453,129 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1920.632944 seconds.
+  Time since last request: 74.585171 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8dab1960c4e394434b70624ec317eda') in 0.021352 seconds
-Number of updated asset objects reloaded before import = 0
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8d86e9a2db5270c71cf465f87f8dd001') in 0.021930 seconds
+Number of updated asset objects reloaded before import = 1
 Number of asset objects unloaded after import = 5
 ========================================================================
 Received Import Request.
-  Time since last request: 2.309261 seconds.
+  Time since last request: 111.367058 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4599a6f6875c3b0571e6d96b1272eaf') in 0.002998 seconds
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24ee05fa640777ad9b8e7ddde24101c5') in 0.002636 seconds
 Number of updated asset objects reloaded before import = 1
 Number of asset objects unloaded after import = 5
 ========================================================================
 Received Import Request.
-  Time since last request: 86.343514 seconds.
-  path: Assets/Scripts/cameraRotator.cs
-  artifactKey: Guid(00fbf4ad7a2775b4790f27860adb28ba) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Scripts/cameraRotator.cs using Guid(00fbf4ad7a2775b4790f27860adb28ba) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '93994247966ccb92622b0860661af848') in 0.158715 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Electricity_01.prefab
-  artifactKey: Guid(68101499d07aced4aa0ded4acb624942) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Electricity_01.prefab using Guid(68101499d07aced4aa0ded4acb624942) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '681f5ba4e6d938872f60ad20efc9881f') in 0.094712 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 6
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_MuzzleFlash_01.prefab
-  artifactKey: Guid(1f58a1dea6bbd9347843e4935585e6a2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_MuzzleFlash_01.prefab using Guid(1f58a1dea6bbd9347843e4935585e6a2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '54e986d952177761fab175a32bed73ef') in 0.063269 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 22
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/DistortedFlare01_AB_2.mat
-  artifactKey: Guid(f89acd7b19d225944b4fbf35c6271641) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/DistortedFlare01_AB_2.mat using Guid(f89acd7b19d225944b4fbf35c6271641) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'dd4520a8f64373c847cc13ab3ae8813b') in 0.064648 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Tornado_01.prefab
-  artifactKey: Guid(460babe280fe4aa41adc3fefd46f0c0b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Tornado_01.prefab using Guid(460babe280fe4aa41adc3fefd46f0c0b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'ad17d58b97a110e839aa92ab619fbac5') in 0.058538 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 6
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Settings
-  artifactKey: Guid(3582b1ef09d3e4240bfb4503fa1a43fd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Settings using Guid(3582b1ef09d3e4240bfb4503fa1a43fd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'ec26cb9f2534520ca67bbfea97eda454') in 0.010673 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Lightning_01.prefab
-  artifactKey: Guid(e84c40719cee66744925cce01bef28fc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Lightning_01.prefab using Guid(e84c40719cee66744925cce01bef28fc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '9e0156b6c5d72b53e55466f778872c32') in 0.057591 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/aimingRay.cs
-  artifactKey: Guid(80786787aef6bfe429b80f241d746a7d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/aimingRay.cs using Guid(80786787aef6bfe429b80f241d746a7d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '15dca5b6aab766cbca4787c18d0a9e4c') in 0.014134 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Settings/FE_UniversalRenderPipelineGlobalSettings.asset
-  artifactKey: Guid(f624697490ae4154ca1fb7403ed715c0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Settings/FE_UniversalRenderPipelineGlobalSettings.asset using Guid(f624697490ae4154ca1fb7403ed715c0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'c5624e2aa7da5e5c3dd9c28c0d58a621') in 0.038603 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000014 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Heal_01.prefab
-  artifactKey: Guid(108ca465382c11742bd2c91fe4fdb13f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Heal_01.prefab using Guid(108ca465382c11742bd2c91fe4fdb13f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '5928f6f948a98e02ba0858a923713998') in 0.060631 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 0.000020 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Scene/Ground.mat
-  artifactKey: Guid(a8cf2a543d416384ea667f7eeda74ef5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Scene/Ground.mat using Guid(a8cf2a543d416384ea667f7eeda74ef5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '25749441734bbcb3b0aff829ec4e6e40') in 0.017286 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Scene
-  artifactKey: Guid(09ea74c6a308bbd408df5b232c15ec94) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Scene using Guid(09ea74c6a308bbd408df5b232c15ec94) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '9906f83bd6d405a0e53b308608766aa6') in 0.011458 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Implosion_01.prefab
-  artifactKey: Guid(0f3d407feb92ebb49b98d0157de5008a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Implosion_01.prefab using Guid(0f3d407feb92ebb49b98d0157de5008a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'a0e5de327e746bf54848dccfa9834111') in 0.060227 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/DistortedFlare01_AB.mat
-  artifactKey: Guid(421e78f4ac395ed4d9d82e67feda29e0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/DistortedFlare01_AB.mat using Guid(421e78f4ac395ed4d9d82e67feda29e0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'e0b5b0d57291737dfc198a648912e130') in 0.016976 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Flamethrower_02.prefab
-  artifactKey: Guid(856f1f18fb8861d4499813c38a5963ae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Flamethrower_02.prefab using Guid(856f1f18fb8861d4499813c38a5963ae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '66f52c9bda59da186702447b600a46a4') in 0.064711 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 18
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Projectile_02.prefab
-  artifactKey: Guid(dc33e45a4bb28854c941caca0629dcce) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Projectile_02.prefab using Guid(dc33e45a4bb28854c941caca0629dcce) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f5548eed8f7e9e0394d81490256f6bbe') in 0.062616 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 17
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Flare00_AB_2.mat
-  artifactKey: Guid(0153253dee1c55945abc95d9be9e19df) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Flare00_AB_2.mat using Guid(0153253dee1c55945abc95d9be9e19df) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '8966cf6d9849b7b58ce7ae171e6d21e5') in 0.012839 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Flame02_AB.mat
-  artifactKey: Guid(ac7c08f2b664f2b428189ab78163b269) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Flame02_AB.mat using Guid(ac7c08f2b664f2b428189ab78163b269) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '9b37de7f81878b52b178e48eaece4396') in 0.024881 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Rain_02.prefab
-  artifactKey: Guid(6c064513aa7cae142b65066943c8fdbd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Rain_02.prefab using Guid(6c064513aa7cae142b65066943c8fdbd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'bf5439d42b81da5a7a5fa43825b03227') in 0.056202 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 14
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1_2022_URP_v1.0.unitypackage
-  artifactKey: Guid(19088a1957085d54db3a26fd3fa56040) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1_2022_URP_v1.0.unitypackage using Guid(19088a1957085d54db3a26fd3fa56040) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '0c7cfa74807d02e05558a5f9ed67ebf3') in 0.012000 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/lazerPlane1.fbx
-  artifactKey: Guid(7d0095875164d5c418b724598b81b37a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/lazerPlane1.fbx using Guid(7d0095875164d5c418b724598b81b37a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '2fd1eca742ae5f908208e9d9b15d4450') in 0.033629 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 17
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/DistortedFlare01.png
-  artifactKey: Guid(045455acf260bb2448a3af663573846c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/DistortedFlare01.png using Guid(045455acf260bb2448a3af663573846c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '37bee83e75cf41339204546dbf68bd8f') in 0.047428 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1
-  artifactKey: Guid(dc1d908ce8be74e42bbc2010f9193665) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1 using Guid(dc1d908ce8be74e42bbc2010f9193665) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'ce00cd92f7553f132a07550cbbcee997') in 0.011501 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Rain_01.prefab
-  artifactKey: Guid(1731425cf73de7541b40acd38dba18ec) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Rain_01.prefab using Guid(1731425cf73de7541b40acd38dba18ec) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '5d89103b6abe644fc444c19ad64074ff') in 0.062310 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000013 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_MeteorRain_01.prefab
-  artifactKey: Guid(ae9bdcaa1a8496449b1068fd7844906c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_MeteorRain_01.prefab using Guid(ae9bdcaa1a8496449b1068fd7844906c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'b6ac633cacb4e826cb79436bbe4ce6bd') in 0.056678 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 10
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Scenes/FreeQuickEffectsVol1.unity
-  artifactKey: Guid(27a5f61cefbeb12488d1e9b74932a88c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Scenes/FreeQuickEffectsVol1.unity using Guid(27a5f61cefbeb12488d1e9b74932a88c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'dec1e71135ebdb16b669ddfa5414ec03') in 0.011663 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Flamethrower_01.prefab
-  artifactKey: Guid(366377810aaf4fc4ab2be725a54c5712) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Flamethrower_01.prefab using Guid(366377810aaf4fc4ab2be725a54c5712) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'cd2790cc19a510bd57df3430b1b6d109') in 0.066347 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 14
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Swirl01_AB_2.mat
-  artifactKey: Guid(a90f663dbd3114d4dae0a1b78c3419c1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Swirl01_AB_2.mat using Guid(a90f663dbd3114d4dae0a1b78c3419c1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '7abebafb9fa23b7e7b2c5e830e38ddd5') in 0.012451 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Projectile_01.prefab
-  artifactKey: Guid(bc142210df3ec4545a4e3e1f21e00da7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Projectile_01.prefab using Guid(bc142210df3ec4545a4e3e1f21e00da7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'fe2f9bf45e70b442755892ea59fdc285') in 0.061432 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 17
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Scene/Sky.mat
-  artifactKey: Guid(28bdf5580579db141aab2df149908772) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Scene/Sky.mat using Guid(28bdf5580579db141aab2df149908772) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'c32810257a68c9e0a1db386976fe6280') in 0.012224 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Sparks_01.prefab
-  artifactKey: Guid(5a936c83b1746f14f9100db745e94f04) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Sparks_01.prefab using Guid(5a936c83b1746f14f9100db745e94f04) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '77290dcac25b3c601441496019304f99') in 0.054958 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 6
-========================================================================
-Received Import Request.
-  Time since last request: 0.000016 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_MuzzleFlash_02.prefab
-  artifactKey: Guid(4f5fc4bbd01b03a4499a6ed77f175fc7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_MuzzleFlash_02.prefab using Guid(4f5fc4bbd01b03a4499a6ed77f175fc7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f0904878ba71b3b869edd93e2f528dd7') in 0.069649 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 22
-========================================================================
-Received Import Request.
-  Time since last request: 0.000017 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Explosion_01.prefab
-  artifactKey: Guid(cf82839c411151342a7b2337bda9fb34) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Prefabs/vfx_Explosion_01.prefab using Guid(cf82839c411151342a7b2337bda9fb34) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'be85755a5cb89d80a2f4db7151f4ee60') in 0.059602 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 34
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Circle01_AB_2.mat
-  artifactKey: Guid(a11275e0ac9b67c49b1f1d2ebd643928) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Materials/Circle01_AB_2.mat using Guid(a11275e0ac9b67c49b1f1d2ebd643928) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '1d2b7efd7f3e7962f96d7023fd55ad86') in 0.013855 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Models/Mountains01.fbx
-  artifactKey: Guid(7d7b1b4c62dbbe4459d4b39b1e805e83) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Models/Mountains01.fbx using Guid(7d7b1b4c62dbbe4459d4b39b1e805e83) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'a5023560a9f1b7827a62a70a40ef3f04') in 0.025700 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 19
-========================================================================
-Received Import Request.
-  Time since last request: 0.000018 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Flame02.png
-  artifactKey: Guid(bae572b8abde45b49abfe9fb73223b07) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Textures/Flame02.png using Guid(bae572b8abde45b49abfe9fb73223b07) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'c7a7c09c3f314740f51c2ebaf125ee69') in 0.024461 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Settings/FE_ForwardRenderer.asset
-  artifactKey: Guid(4a52cba4e99fa1f46be111e45979dc86) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/GabrielAguiarProductions/FreeQuickEffectsVol1/Settings/FE_ForwardRenderer.asset using Guid(4a52cba4e99fa1f46be111e45979dc86) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'af59b4565a8d80aab035297c3757df30') in 0.017765 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 479.755634 seconds.
+  Time since last request: 126.187072 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24d830331ee60d467c45753ef4020ba8') in 0.002860 seconds
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c9824e2514a6ab0844c2c827dea7e6f') in 0.002242 seconds
 Number of updated asset objects reloaded before import = 1
 Number of asset objects unloaded after import = 5
 ========================================================================
 Received Import Request.
-  Time since last request: 0.891996 seconds.
-  path: Assets/beam.vfx
-  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '776f564c3cc08f1b6ebd1505a6947589') in 0.024526 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 5
-========================================================================
-Received Import Request.
-  Time since last request: 6.250226 seconds.
-  path: Assets/Materials/lazer.shadergraph
-  artifactKey: Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Materials/lazer.shadergraph using Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'df06e1cf4fdf0c0366e307435248fab5') in 0.014761 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 4.337542 seconds.
+  Time since last request: 119.058117 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cfe96810b70101bee86cd64ae5b85db') in 0.002224 seconds
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e0fd196ac99600bb27646cff358871b') in 0.002176 seconds
 Number of updated asset objects reloaded before import = 1
 Number of asset objects unloaded after import = 5
 ========================================================================
 Received Import Request.
-  Time since last request: 26.044560 seconds.
+  Time since last request: 10.371288 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bc07523aa58a879ec2fbc4acbe95fe6') in 0.001976 seconds
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aebb35c90887e16e3961026b8d1550b9') in 0.002406 seconds
 Number of updated asset objects reloaded before import = 1
-Number of asset objects unloaded after import = 4
+Number of asset objects unloaded after import = 5
 ========================================================================
 Received Import Request.
-  Time since last request: 102.916562 seconds.
-  path: Assets/Materials/lazer.shadergraph
-  artifactKey: Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Materials/lazer.shadergraph using Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'f5687f3249095185ddc60d74f7dae727') in 0.011978 seconds
-Number of updated asset objects reloaded before import = 1
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 65.230984 seconds.
-  path: Assets/Materials/lazer.shadergraph
-  artifactKey: Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Materials/lazer.shadergraph using Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '34e7efd82e6f69d68b239ec7fe9adaee') in 0.014649 seconds
-Number of updated asset objects reloaded before import = 1
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 72.248576 seconds.
-  path: Assets/Materials/lazer.shadergraph
-  artifactKey: Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Materials/lazer.shadergraph using Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: 'a34075ee11e343c00c6a537e2ddb6034') in 0.015087 seconds
-Number of updated asset objects reloaded before import = 1
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 51.708891 seconds.
+  Time since last request: 71.889923 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6269642d2187deb1d952e88ec8f6f2b9') in 0.003237 seconds
-Number of updated asset objects reloaded before import = 0
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31636bb0f00ea3a2e2ad7bccdcf231e3') in 0.002134 seconds
+Number of updated asset objects reloaded before import = 1
 Number of asset objects unloaded after import = 5
 ========================================================================
 Received Import Request.
-  Time since last request: 82.463744 seconds.
-  path: Assets/Materials/lazer.shadergraph
-  artifactKey: Guid(83649f385e1df09488666bbfdcff7c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/lazer.shadergraph using Guid(83649f385e1df09488666bbfdcff7c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbde0950a5a1e890e63d4d5ac9529334') in 0.000939 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 118.439175 seconds.
-  path: Assets/Materials/lazer.shadergraph
-  artifactKey: Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Materials/lazer.shadergraph using Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '0585a0e4fa7cd91af3bf8056b815c1c0') in 0.014855 seconds
-Number of updated asset objects reloaded before import = 1
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 29.493741 seconds.
+  Time since last request: 15.095270 seconds.
   path: Assets/beam.vfx
   artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a49eae5527e1864766ae81d355a1c09') in 0.002276 seconds
-Number of updated asset objects reloaded before import = 0
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c31e70c0005378e7f63a1a170715a52f') in 0.002057 seconds
+Number of updated asset objects reloaded before import = 1
 Number of asset objects unloaded after import = 5
 ========================================================================
 Received Import Request.
-  Time since last request: 732.138083 seconds.
-  path: Assets/lazerMask1.png
-  artifactKey: Guid(cd3db153498395e458049cffc2865320) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/lazerMask1.png using Guid(cd3db153498395e458049cffc2865320) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '501677f69f4d4475251b85b9b69bf75a') in 0.025888 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.571045 seconds.
-  path: Assets/lazerMask1.png
-  artifactKey: Guid(cd3db153498395e458049cffc2865320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/lazerMask1.png using Guid(cd3db153498395e458049cffc2865320) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ed1d5455ef16eab0f97fb326879f86a') in 0.028505 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 161.532355 seconds.
-  path: Assets/Materials/lazer.shadergraph
-  artifactKey: Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/Materials/lazer.shadergraph using Guid(83649f385e1df09488666bbfdcff7c8a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '712b927cc08764e051556be87762f34a') in 0.025014 seconds
-Number of updated asset objects reloaded before import = 1
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 29.078703 seconds.
-  path: Assets/lazerMask1.png
-  artifactKey: Guid(cd3db153498395e458049cffc2865320) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/lazerMask1.png using Guid(cd3db153498395e458049cffc2865320) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '9f2bfc78e62929da04f7befeb9951a7b') in 0.026003 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 28.766507 seconds.
+  Time since last request: 244.755976 seconds.
   path: Assets/beam.vfx
-  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
-Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) Generated GUIDs only implemented for interfaces!
- -> (artifact id: '814dfb5d269154c16c51b3d65e312a5a') in 0.019886 seconds
+  artifactKey: Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/beam.vfx using Guid(ae9a51f658fc35a43ad37a65be75cbbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bab5639506c1caa671bcc89d87af776') in 0.003134 seconds
 Number of updated asset objects reloaded before import = 1
 Number of asset objects unloaded after import = 5
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.496 seconds
+Refreshing native plugins compatible for Editor in 2.89 ms, found 2 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.426 seconds
+Domain Reload Profiling: 1919ms
+	BeginReloadAssembly (160ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (31ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (30ms)
+	LoadAllAssembliesAndSetupDomain (262ms)
+		LoadAssemblies (284ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (60ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (39ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1426ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (665ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (69ms)
+			ProcessInitializeOnLoadAttributes (534ms)
+			ProcessInitializeOnLoadMethodAttributes (49ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Shader Hidden/ProbeVolume/VoxelizeScene is not supported: GPU does not support conservative rasterization
+Refreshing native plugins compatible for Editor in 3.92 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4303 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 35 unused Assets / (1.1 MB). Loaded Objects now: 5003.
+Memory consumption went from 180.6 MB to 179.5 MB.
+Total: 4.527700 ms (FindLiveObjects: 0.305800 ms CreateObjectMapping: 0.249200 ms MarkObjects: 3.750500 ms  DeleteObjects: 0.221100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 62b5816608c3102f162a1797e29626cf -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

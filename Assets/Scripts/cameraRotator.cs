@@ -6,6 +6,8 @@ using UnityEngine;
 
 //todo: energy weapon charges from drifring near walls, walls are electrified and heavily throw back drone when its touching walls
 
+//todo: lazer fllare at drone-aiming ray point and create same particle using ray at when that ray lands by traveling from camera center and to nearest enemy/terrain
+
 public class cameraRotator : MonoBehaviour
 {
 	public PlayerInput playerInput;
