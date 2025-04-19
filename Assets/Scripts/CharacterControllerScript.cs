@@ -36,14 +36,24 @@ Quaternion rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
 public class CharacterControllerScript : MonoBehaviour
 {
     public PlayerInput playerInput;
-	public Rigidbody rb;
+	public Transform barrel;
+	public float shootSpeed;
 	
+	private bool shooting;
+	private Rigidbody rb;
 	private InputAction moveAction, spacebar, shift, z, x, q, e, lmb, rmb;
-	private float moveAmount;	
-	private float maxForcedAngularVelocity;
+	private float moveAmount, maxForcedAngularVelocity, shootingStartTime, shootingEndTime, shootLength ;
+	private Vector3 shootBeginPosition, shootEndPosition;
 
     void Start()
     {
+		//no kings, no gods.
+		if (shootSpeed > 100f || shootSpeed <= 0.0f) {
+			shootSpeed = 50f;
+		}
+		//not yet ferb
+		shooting = false;
+		
 		moveAction = playerInput.actions.FindAction("Move");
 		spacebar = playerInput.actions.FindAction("Space");
 		shift = playerInput.actions.FindAction("Shift");
@@ -70,6 +80,7 @@ public class CharacterControllerScript : MonoBehaviour
 		float stopRotation = x.ReadValue<float>();
 		float barrelRollLeft = q.ReadValue<float>();
 		float barrelRollRight = e.ReadValue<float>();
+		float LMB = lmb.ReadValue<float>();
 		
 		if (move.x > 0) {
 			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
@@ -114,7 +125,46 @@ public class CharacterControllerScript : MonoBehaviour
 			}
 			rb.AddTorque(rotation);
 		}
+		
+		//shooting sequence
+		if (LMB > 0 && !shooting) {
+			//if not shooting, initiate sequence
+			OpenFire();
+		}
+		if (shooting) {
+			//If already shooting, continue sequence
+			Shoot();
+		}
+		
 		//passively push drone upwards
 		rb.AddRelativeForce(passiveForce, ForceMode.Acceleration);
     }
+	
+	//initiate shooting sequence
+	private void OpenFire() {
+		Debug.Log("fire");
+		shootingStartTime = Time.time;
+		shootBeginPosition = barrel.transform.localPosition;
+		shootEndPosition = barrel.transform.localPosition;
+		shootEndPosition.y -= 1.6f;
+		shootLength = Vector3.Distance(shootBeginPosition, shootEndPosition);
+		//GO
+		shooting = true;
+	}
+	
+	//continue shooting sequence
+	private void Shoot(){
+		//1. Push barrel back.
+		
+		// Distance moved equals elapsed time times speed..
+        float distCovered = (Time.time - shootingStartTime) * shootSpeed;
+
+        // Fraction of journey completed equals current distance divided by total distance.
+        float fractionOfJourney = distCovered / shootLength;
+		
+		barrel.localPosition = Vector3.Lerp(shootBeginPosition, shootEndPosition, fractionOfJourney);
+		Debug.Log("begin " +  shootBeginPosition);
+		Debug.Log("end " +  shootEndPosition);
+		Debug.Log("fraction " +  fractionOfJourney);
+	}
 }
