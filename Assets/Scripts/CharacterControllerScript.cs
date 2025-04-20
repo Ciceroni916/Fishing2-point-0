@@ -48,8 +48,8 @@ public class CharacterControllerScript : MonoBehaviour
     void Start()
     {
 		//no kings, no gods.
-		if (shootSpeed > 100f || shootSpeed <= 0.0f) {
-			shootSpeed = 50f;
+		if (shootSpeed > 5 || shootSpeed <= 0.1f) {
+			shootSpeed = 5f;
 		}
 		//not yet ferb
 		shooting = false;
@@ -154,17 +154,18 @@ public class CharacterControllerScript : MonoBehaviour
 	
 	//continue shooting sequence
 	private void Shoot(){
-		//1. Push barrel back.
-		
-		// Distance moved equals elapsed time times speed..
         float distCovered = (Time.time - shootingStartTime) * shootSpeed;
-
-        // Fraction of journey completed equals current distance divided by total distance.
-        float fractionOfJourney = distCovered / shootLength;
-		
-		barrel.localPosition = Vector3.Lerp(shootBeginPosition, shootEndPosition, fractionOfJourney);
-		Debug.Log("begin " +  shootBeginPosition);
-		Debug.Log("end " +  shootEndPosition);
-		Debug.Log("fraction " +  fractionOfJourney);
+		float fractionOfJourney = distCovered / shootLength;
+		if (fractionOfJourney < 0.01) {
+			//1. Push barrel back.
+			barrel.localPosition = Vector3.Lerp(shootBeginPosition, shootEndPosition, fractionOfJourney * 100);
+		} else {
+			//2. Push barrel forward.
+			barrel.localPosition = Vector3.Lerp(shootEndPosition, shootBeginPosition, fractionOfJourney);
+		}
+		if (fractionOfJourney > 1.0f) {
+			shooting = false;
+			return;
+		}
 	}
 }

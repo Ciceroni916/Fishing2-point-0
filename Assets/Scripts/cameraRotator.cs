@@ -6,8 +6,6 @@ using UnityEngine;
 
 //todo: energy weapon charges from drifring near walls, walls are electrified and heavily throw back drone when its touching walls
 
-//todo: lazer fllare at drone-aiming ray point and create same particle using ray at when that ray lands by traveling from camera center and to nearest enemy/terrain
-
 public class cameraRotator : MonoBehaviour
 {
 	public PlayerInput playerInput;
@@ -69,7 +67,13 @@ public class cameraRotator : MonoBehaviour
 					} else {
 						//too high/low
 						Vector3 particlePos = (this.transform.forward * 10) + this.transform.position;
-						GameObject currentParticleSystem = Instantiate(yAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform);
+						GameObject currentParticleSystem = Instantiate(xAxisParticlesPrefab, particlePos, new Quaternion(0,0,0,0), drone.transform);
+						var shape = currentParticleSystem.GetComponent<ParticleSystem>().shape;
+						if (rodOff.x > 0) {
+							shape.rotation = new Vector3(0,0,180);
+						} else {
+							shape.rotation = new Vector3(0,0,0);
+						}
 						currentParticleSystem.transform.localRotation = this.transform.localRotation;
 					}
 					// todo: git: library folder is important, push it somehow/find important parts.
