@@ -38,6 +38,8 @@ public class CharacterControllerScript : MonoBehaviour
     public PlayerInput playerInput;
 	public Transform barrel;
 	public float shootSpeed;
+	public GameObject BOOM;
+	public Camera cam;
 	
 	private bool shooting;
 	private Rigidbody rb;
@@ -130,6 +132,7 @@ public class CharacterControllerScript : MonoBehaviour
 		if (LMB > 0 && !shooting) {
 			//if not shooting, initiate sequence
 			OpenFire();
+			CreateVisualExplosionsEffect();
 		}
 		if (shooting) {
 			//If already shooting, continue sequence
@@ -142,7 +145,6 @@ public class CharacterControllerScript : MonoBehaviour
 	
 	//initiate shooting sequence
 	private void OpenFire() {
-		Debug.Log("fire");
 		shootingStartTime = Time.time;
 		shootBeginPosition = barrel.transform.localPosition;
 		shootEndPosition = barrel.transform.localPosition;
@@ -166,6 +168,16 @@ public class CharacterControllerScript : MonoBehaviour
 		if (fractionOfJourney > 1.0f) {
 			shooting = false;
 			return;
+		}
+	}
+	
+	//makes things LOOKS like they go boom
+	private void CreateVisualExplosionsEffect() {
+		//todo: might be issues with shooting in open space/into an object that is too far.
+		RaycastHit hit;
+		LayerMask layerMask = LayerMask.GetMask("Terrain", "Enemy");
+		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 100f, layerMask)) {
+			GameObject currentParticleSystem = Instantiate(BOOM, hit.point, new Quaternion(0,0,0,0));
 		}
 	}
 }

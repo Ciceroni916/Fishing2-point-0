@@ -140,7 +140,6 @@ public class UIControlelr : MonoBehaviour
 			if (extermination < 4.0) {
 				dangerousBeep.volume = 0.5f;
 				if (!dangerousBeep.isPlaying && dangerousBeep.enabled) dangerousBeep.Play();
-				//filler
 			} else {
 				//todo: faster beeps
 			}
