@@ -31,10 +31,12 @@ public class boom_sphere : MonoBehaviour
 		if (Time.fixedTime > startTime + 1.0f) {
 			Destroy(this.gameObject);
 		}
+		//OUR INFLUENCE EXPANDED
 		trScale += trIterator;
         transform.localScale = trScale;
     }
 	
+	//disassemble.cs unparents all childen and disables their rb-s kinematic mode so that turret would exploded without launching itself in unpredictable directions
 	void OnTriggerEnter(Collider collision) {
 		// if (
 		//todo: only check/add parent that is first from above
@@ -44,8 +46,20 @@ public class boom_sphere : MonoBehaviour
 		if (!idArray.Contains(id)) {
 			idArray.Add(id);
 			//telling turrent to dissassemble itself
-			colGO.SendMessageUpwards("Disassemble","",SendMessageOptions.DontRequireReceiver);
-			//
+			colGO.SendMessageUpwards("Disassemble",transform.position,SendMessageOptions.DontRequireReceiver);
+			Vector3 colPos = collision.transform.position;
+			collision.attachedRigidbody.AddTorque(colPos.normalized * 1.5f, ForceMode.Impulse);
 		}
 	}
+	
+	//push every rb away from the center of the sphere 
+	void OnTriggerStay(Collider other)
+    {
+        if (other.attachedRigidbody) {
+			//todo: fix this calculation. As it stands now objects further away from center are launched faster.
+			// Vector3 pushDirection = other.transform.position - this.GetComponent<Collider>().ClosestPoint(other.transform.position);
+			Vector3 pushDirection = other.transform.position - transform.position;
+            other.attachedRigidbody.AddForce(pushDirection, ForceMode.Impulse);
+		}
+    }
 }
