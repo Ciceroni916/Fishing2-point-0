@@ -22,6 +22,7 @@ public class boom_sphere : MonoBehaviour
 		trScale = new Vector3(1f,1f,1f);
 		trIterator = new Vector3(0.25f,0.25f,0.25f);
 		idArray = new List<int>();
+		//filler
     }
 
     // Update is called once per frame
