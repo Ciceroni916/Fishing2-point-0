@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class seekplayer : MonoBehaviour
 {
-	private Transform target;
+	
 	public float perceptionLength = 50.0f;
+	
 	private float noticedIterator = 0.01f;
+	private Transform target;
 	private LineRenderer threat;
-	
-	public float cycleNumber;
-	
-	private GameObject rememberedTarget, debugtarget;
+	private GameObject rememberedTarget;
 	private float noticedTimer;
 	private bool targetNoticed;
 	private float exterminationTimer = 0.0f;
@@ -21,21 +20,9 @@ public class seekplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		look = transform.parent.parent.GetComponent<looker>();
+		look = transform.parent.GetComponent<looker>();
 		target = look.target;
 		threat = look.threat;
-		debugtarget = gameObject;
-		
-		//bruh don't even ask
-		// float startingNumber = 5000.0f;
-		// float calculatedNumber = startingNumber;
-		// float mult = 1.075f;
-		// float finalNumber = 0;
-		// for (int i = 0; i < cycleNumber; i++) {
-			// calculatedNumber *= mult;
-			// finalNumber += calculatedNumber;
-		// }
-		// Debug.Log(finalNumber);
     }
 
     // Update is called once per frame
@@ -43,7 +30,7 @@ public class seekplayer : MonoBehaviour
     {
 		Vector3 targetDirection = target.position - transform.position;
 		RaycastHit potentialTarget;
-		float alignment = Vector3.Dot(transform.parent.up.normalized, targetDirection.normalized);
+		float alignment = Vector3.Dot(transform.up.normalized, targetDirection.normalized);
 		LayerMask mask = LayerMask.GetMask("Terrain", "Player", "Enemy");
 		
 		//if noticed nothing; outside of visible range
@@ -52,13 +39,13 @@ public class seekplayer : MonoBehaviour
 			if (noticedTimer > 5.0f && targetNoticed) {
 				look.TargetLost();
 				Debug.Log("TARGET LOST: OUTSIDE OF VISIBLE RANGE.");
-				rememberedTarget.SendMessage("BecomeTargeted", gameObject);
+				LoseTarget();
 			}
 			return;
 		}
 		
 		if (targetNoticed && potentialTarget.transform.gameObject.tag.Equals("Player") && alignment > 0.9f) exterminationTimer += 0.01f;
-		//check if angle between barrel and Player is small enough; check if raycast towards the player is not interrupted by a terr
+		//check if angle between barrel and Player is small enough; check if raycast towards the player is not interrupted by a terrain
         if (alignment > 0.85f){
 			if (potentialTarget.transform.gameObject.tag == "Player") {
 				//player is in front of turret and not behind cover
@@ -77,7 +64,7 @@ public class seekplayer : MonoBehaviour
 				if (noticedTimer >= 5.0f && targetNoticed) {
 					look.TargetLost();
 					Debug.Log("TARGET LOST: HIDING BEHIND COVER.");
-					rememberedTarget.SendMessage("UnbecomeTargeted", gameObject);
+					LoseTarget();
 				}
 			}
 		}
@@ -89,13 +76,35 @@ public class seekplayer : MonoBehaviour
 		}
 		
 		if (exterminationTimer > 5.0f) {
-			Debug.Log("TARGET DESTROYED.");
 			Destroy(target.gameObject);
-			gameObject.SetActive(false);
+			Debug.Log("TARGET DESTROYED.");
 		}
     }
 	
 	public float GetExterminationTimer() {
 		return exterminationTimer;
+	}
+	
+	//in case of flies
+	public void BoomDisable() {
+		this.enabled = false;
+	}
+	
+	public void LoseTarget() {
+		targetNoticed = false;
+		exterminationTimer = 0.0f;
+		rememberedTarget.SendMessage("UnbecomeTargeted", gameObject);
+		threat.SetPosition(0, new Vector3(0,0,0));
+		threat.SetPosition(1, new Vector3(0,0,0));
+	}
+	
+	void OnDisable() {
+		LoseTarget();
+		Debug.Log("TARGET LOST: I AM HOLLOW.");
+	}
+	
+	void OnDestroy() {
+		LoseTarget();
+		Debug.Log("TARGET LOST: I AM DEAD.");
 	}
 }

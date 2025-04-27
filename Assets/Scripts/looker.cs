@@ -7,9 +7,10 @@ using UnityEngine;
 public class looker : MonoBehaviour
 {
     public Transform target;
-	// chasing speed in radians per sec.
+	//after noticing player speed of looking at him. does nothing ;c
     public float speed = 1.0f;
-	public float rotationSpeed;
+	//passive rotation around itself
+	public float rotationSpeed = 1.0f;
 	public LineRenderer threat;
 	
 	private bool targetNoticed, isAngled;
@@ -20,13 +21,13 @@ public class looker : MonoBehaviour
 			//turret in | position
 			isAngled = true;
 		} else {
+			//turret in - position
 			isAngled = false;
 		}
 	}
 	
 	void FixedUpdate(){
 		Vector3 targetDirection = target.position - transform.position;
-		
 		if (targetNoticed) {
 			//Look at player
 			// Determine which direction to rotate towards
@@ -70,4 +71,8 @@ public class looker : MonoBehaviour
 		targetNoticed = false;
 	}
 	
+	//in case of flies
+	public void BoomDisable() {
+		this.enabled = false;
+	}
 }

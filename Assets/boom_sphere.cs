@@ -10,7 +10,7 @@ using UnityEngine;
 public class boom_sphere : MonoBehaviour
 {
 	private SphereCollider col;
-	private float startTime;
+	private float startTime, deathTimer;
 	private Vector3 trScale, trIterator;
 	private List<int> idArray;
 	
@@ -20,16 +20,16 @@ public class boom_sphere : MonoBehaviour
 		col = GetComponent<SphereCollider>();
 		startTime = Time.fixedTime;
 		trScale = new Vector3(1f,1f,1f);
-		trIterator = new Vector3(0.25f,0.25f,0.25f);
+		trIterator = new Vector3(0.35f,0.35f,0.35f);
 		idArray = new List<int>();
-		//filler
+		deathTimer = 0.5f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-		// in africa every 5 seconds a boom_sphere dies. together we can stop this.
-		if (Time.fixedTime > startTime + 1.0f) {
+		// in africa every deathTimer seconds a boom_sphere dies. together we can stop this.
+		if (Time.fixedTime > startTime + deathTimer) {
 			Destroy(this.gameObject);
 		}
 		//OUR INFLUENCE EXPANDED
