@@ -23,6 +23,7 @@ public class seekplayer : MonoBehaviour
 		look = transform.parent.GetComponent<looker>();
 		target = look.target;
 		threat = look.threat;
+		rememberedTarget = null;
     }
 
     // Update is called once per frame
@@ -47,7 +48,7 @@ public class seekplayer : MonoBehaviour
 		if (targetNoticed && potentialTarget.transform.gameObject.tag.Equals("Player") && alignment > 0.9f) exterminationTimer += 0.01f;
 		//check if angle between barrel and Player is small enough; check if raycast towards the player is not interrupted by a terrain
         if (alignment > 0.85f){
-			if (potentialTarget.transform.gameObject.tag == "Player") {
+			if (potentialTarget.transform != null && potentialTarget.transform.gameObject.tag == "Player") {
 				//player is in front of turret and not behind cover
 				noticedTimer = 0.0f;
 				if (!targetNoticed){
@@ -93,7 +94,7 @@ public class seekplayer : MonoBehaviour
 	public void LoseTarget() {
 		targetNoticed = false;
 		exterminationTimer = 0.0f;
-		rememberedTarget.SendMessage("UnbecomeTargeted", gameObject);
+		if (rememberedTarget != null) rememberedTarget.SendMessage("UnbecomeTargeted", gameObject);
 		threat.SetPosition(0, new Vector3(0,0,0));
 		threat.SetPosition(1, new Vector3(0,0,0));
 	}
