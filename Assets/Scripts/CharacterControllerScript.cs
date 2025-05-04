@@ -37,7 +37,7 @@ public class CharacterControllerScript : MonoBehaviour
 {
     public PlayerInput playerInput;
 	public Transform barrel;
-	public float shootSpeed;
+	public float shootSpeed, moveSpeed = 2.0f;
 	public GameObject BOOM;
 	public Camera cam;
 	
@@ -52,6 +52,9 @@ public class CharacterControllerScript : MonoBehaviour
 		//no kings, no gods.
 		if (shootSpeed > 5 || shootSpeed <= 0.1f) {
 			shootSpeed = 5f;
+		}
+		if (moveSpeed < 2.0f) {
+			moveSpeed = 2.0f;
 		}
 		//not yet ferb
 		shooting = false;
@@ -100,7 +103,7 @@ public class CharacterControllerScript : MonoBehaviour
 			passiveForce = new Vector3(0,0,0);
 		}
 		if (up > 0) {
-			passiveForce *= 2.0f;
+			passiveForce *= moveSpeed;
 		}
 		if (barrelRollLeft > 0) {
 			rb.AddRelativeTorque(new Vector3(0,0,0.05f));
