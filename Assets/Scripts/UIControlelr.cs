@@ -21,8 +21,8 @@ public class UIControlelr : MonoBehaviour
 	
 	//beingTargeted related variables
 	private List<GameObject> turretsGO;
+	private List<TMP_Text> warningsTMP;
 	private List<float> turretsExtermination;
-	
 	private int lockedOnFrequency = 50;
 	private int counter;
 	
@@ -30,6 +30,10 @@ public class UIControlelr : MonoBehaviour
     void Start()
     {
 		turretsGO = new List<GameObject>();
+		warningsTMP = new List<TMP_Text>();
+		for(int i = 0; i < lockedOn.gameObject.transform.childCount; i++){
+			warningsTMP.Add(lockedOn.gameObject.transform.GetChild(i).gameObject.GetComponent<TMP_Text>());
+		}
 		counter = 0;
 		if (!sound) {
 			noise.enabled = false;
@@ -110,21 +114,33 @@ public class UIControlelr : MonoBehaviour
 		//turretsGO is a list containing IDs of objects that are currently targeting the player. When its empty player is not threatened by a ranged weaponary.
 		if (turretsGO.Count > 0) {
 			if (counter > lockedOnFrequency / 2) {
-			//flashing red
-			lockedOn.color = new Color(255, 0, 0, 100);
-		} else {
-			//flashing black
-			lockedOn.color = new Color(0, 0, 0, 100);
-		}
+				//flashing red
+				lockedOn.color = new Color(255, 0, 0, 100);
+				for (int i = 0; i < turretsGO.Count && i < warningsTMP.Count; i++) {
+					warningsTMP[i].color = new Color(255, 0, 0, 100);
+				}
+			} else {
+				//flashing black
+				lockedOn.color = new Color(0, 0, 0, 100);
+				for (int i = 0; i < turretsGO.Count && i < warningsTMP.Count; i++) {
+					warningsTMP[i].color = new Color(0, 0, 0, 100);
+				}
+			}
 			counter++;
-			if (counter > 50) counter = 0;
+			if (counter > lockedOnFrequency) counter = 0;
+			//blacking out not needed interface elements
+			for (int i = turretsGO.Count; i < warningsTMP.Count; i++) {
+				warningsTMP[i].color = new Color(0, 0, 0, 100);
+			}
 		} else {
 			//not being targeted
 			counter = 0;
 			lockedOn.color = new Color(0, 0, 0, 100);
+			for (int i = 0; i < warningsTMP.Count; i++) {
+				warningsTMP[i].color = new Color(0, 0, 0, 100);
+			}
 		}
 		//sounds
-		//todo: sound depends on direction
 		//increase noise volume, add static
 		if (turretsGO.Count > 0) {
 			noise.volume = 0.0f;
@@ -135,8 +151,14 @@ public class UIControlelr : MonoBehaviour
 		}
 		//update exterminationTimers array
 		if (turretsGO.Count > 0) {
-			seekplayer sp = turretsGO[0].GetComponent<seekplayer>();
-			float extermination = sp.GetExterminationTimer();
+			//get extermination counter that is closest to killing player drone
+			float extermination = 0.0f;
+			for (int i = 0; i < turretsGO.Count; i++) {
+				seekplayer sp = turretsGO[i].GetComponent<seekplayer>();
+				if (sp.GetExterminationTimer() > extermination) {
+					extermination = sp.GetExterminationTimer();
+				}
+			}
 			if (extermination < 4.0) {
 				dangerousBeep.volume = 0.5f;
 				if (!dangerousBeep.isPlaying && dangerousBeep.enabled) dangerousBeep.Play();

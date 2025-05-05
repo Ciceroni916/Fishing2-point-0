@@ -4,8 +4,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine;
 
-//todo: energy weapon charges from drifring near walls, walls are electrified and heavily throw back drone when its touching walls
-
 public class cameraRotator : MonoBehaviour
 {
 	public PlayerInput playerInput;
@@ -76,10 +74,7 @@ public class cameraRotator : MonoBehaviour
 						}
 						currentParticleSystem.transform.localRotation = this.transform.localRotation;
 					}
-					// todo: git: library folder is important, push it somehow/find important parts.
-					// create round version of particle effect and put it when camera is turning to the sides too much
 				}
-				//todo: when offset value is out of circle create negatively looking visual effects that mask my inability to snap camera to the point on circle instead of fully negating camera movement.
 			}
 		} else if (gameObject.transform.localEulerAngles != Vector3.zero) {
 			//note: could be issues with warping cursor if ANYTHING else changes camera rotation

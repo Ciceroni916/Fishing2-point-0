@@ -46,6 +46,7 @@ public class looker : MonoBehaviour
 			transform.rotation = Quaternion.LookRotation(newDirection);
 			
 			//draw a threatening line towards player
+			//worldspace
 			threat.SetPosition(0, transform.position);
 			threat.SetPosition(1, target.position);
 		} else {

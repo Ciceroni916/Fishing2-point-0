@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//todo: make a proper pointing laser, lower turret range, change color depending on whether turret sees player or not 
+//todo: dark clouds + killzone beneath certain point
 public class seekplayer : MonoBehaviour
 {
 	

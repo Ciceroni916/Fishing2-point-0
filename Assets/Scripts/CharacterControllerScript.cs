@@ -176,7 +176,6 @@ public class CharacterControllerScript : MonoBehaviour
 	
 	//makes things LOOKS like they go boom
 	private void CreateVisualExplosionsEffect() {
-		//todo: might be issues with shooting in open space/into an object that is too far.
 		RaycastHit hit;
 		LayerMask layerMask = LayerMask.GetMask("Terrain", "Enemy");
 		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 100f, layerMask)) {

@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.VFX;
 
 //move particle system to first terarin/enemy encountered by physics ray
-//todo: change ray and particle colors to red when targeting enemy and keep it as system color (white/green?) otherwise.
 public class aimingRay : MonoBehaviour
 {
 	public Camera cam;
