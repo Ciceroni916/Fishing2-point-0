@@ -30,6 +30,7 @@ public class boom_sphere : MonoBehaviour
     {
 		// in africa every deathTimer seconds a boom_sphere dies. together we can stop this.
 		if (Time.fixedTime > startTime + deathTimer) {
+			Destroy(this.transform.parent.gameObject);
 			Destroy(this.gameObject);
 		}
 		//OUR INFLUENCE EXPANDED

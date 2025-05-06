@@ -11,7 +11,7 @@ public class seekplayer : MonoBehaviour
 	
 	private float noticedIterator = 0.01f;
 	private Transform target;
-	private LineRenderer threat;
+	// private LineRenderer threat;
 	private GameObject rememberedTarget;
 	private float noticedTimer;
 	private bool targetNoticed;
@@ -24,7 +24,7 @@ public class seekplayer : MonoBehaviour
     {
 		look = transform.parent.GetComponent<looker>();
 		target = look.target;
-		threat = look.threat;
+		// threat = look.threat;
 		rememberedTarget = null;
     }
 
@@ -35,6 +35,8 @@ public class seekplayer : MonoBehaviour
 		RaycastHit potentialTarget;
 		float alignment = Vector3.Dot(transform.up.normalized, targetDirection.normalized);
 		LayerMask mask = LayerMask.GetMask("Terrain", "Player", "Enemy");
+		
+		Debug.DrawRay(this.transform.position, Vector3.forward * perceptionLength, new Color(255,0,0,100), 0.1f);
 		
 		//if noticed nothing; outside of visible range
 		if (!Physics.Raycast(transform.position, targetDirection, out potentialTarget, perceptionLength, mask) && targetNoticed) {
@@ -74,8 +76,8 @@ public class seekplayer : MonoBehaviour
 		if (noticedTimer > 5.0f) {
 			targetNoticed = false;
 			exterminationTimer = 0.0f;
-			threat.SetPosition(0, new Vector3(0,0,0));
-			threat.SetPosition(1, new Vector3(0,0,0));
+			// threat.SetPosition(0, new Vector3(0,0,0));
+			// threat.SetPosition(1, new Vector3(0,0,0));
 		}
 		
 		if (exterminationTimer > 5.0f) {
@@ -97,8 +99,8 @@ public class seekplayer : MonoBehaviour
 		targetNoticed = false;
 		exterminationTimer = 0.0f;
 		if (rememberedTarget != null) rememberedTarget.SendMessage("UnbecomeTargeted", gameObject);
-		threat.SetPosition(0, new Vector3(0,0,0));
-		threat.SetPosition(1, new Vector3(0,0,0));
+		// threat.SetPosition(0, new Vector3(0,0,0));
+		// threat.SetPosition(1, new Vector3(0,0,0));
 	}
 	
 	void OnDisable() {

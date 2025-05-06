@@ -11,7 +11,7 @@ public class looker : MonoBehaviour
     public float speed = 1.0f;
 	//passive rotation around itself
 	public float rotationSpeed = 1.0f;
-	public LineRenderer threat;
+	// public LineRenderer threat;
 	
 	private bool targetNoticed, isAngled;
 	
@@ -47,8 +47,8 @@ public class looker : MonoBehaviour
 			
 			//draw a threatening line towards player
 			//worldspace
-			threat.SetPosition(0, transform.position);
-			threat.SetPosition(1, target.position);
+			// threat.SetPosition(0, transform.position);
+			// threat.SetPosition(1, target.position);
 		} else {
 			//rotates clockwise
 			Vector3 rotation = transform.eulerAngles;
