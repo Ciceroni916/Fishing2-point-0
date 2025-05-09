@@ -38,12 +38,12 @@ public class CharacterControllerScript : MonoBehaviour
     public PlayerInput playerInput;
 	public Transform barrel;
 	public float shootSpeed, moveSpeed = 2.0f;
-	public GameObject BOOM;
+	public GameObject BOOM, gameCanvas, pauseCanvas;
 	public Camera cam;
 	
 	private bool shooting;
 	private Rigidbody rb;
-	private InputAction moveAction, spacebar, shift, z, x, q, e, lmb, rmb;
+	private InputAction moveAction, spacebar, shift, z, x, q, e, lmb, rmb, esc;
 	private float moveAmount, maxForcedAngularVelocity, shootingStartTime, shootingEndTime, shootLength ;
 	private Vector3 shootBeginPosition, shootEndPosition;
 
@@ -68,6 +68,7 @@ public class CharacterControllerScript : MonoBehaviour
 		e = playerInput.actions.FindAction("BarrelRollRight");
 		rmb = playerInput.actions.FindAction("RMB");
 		lmb = playerInput.actions.FindAction("LMB");
+		esc = playerInput.actions.FindAction("ESC");
 		
 		rb = GetComponent<Rigidbody>();
 		rb.maxLinearVelocity = 50.0f;
@@ -86,6 +87,7 @@ public class CharacterControllerScript : MonoBehaviour
 		float barrelRollLeft = q.ReadValue<float>();
 		float barrelRollRight = e.ReadValue<float>();
 		float LMB = lmb.ReadValue<float>();
+		float pause = esc.ReadValue<float>();
 		
 		if (move.x > 0) {
 			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
@@ -129,6 +131,11 @@ public class CharacterControllerScript : MonoBehaviour
 				rotation.z = (curRot.z < 0) ? 0.01f : -0.01f;
 			}
 			rb.AddTorque(rotation);
+		}
+		if (pause > 0) {
+			Time.timeScale = 0;
+			gameCanvas.SetActive(false);
+			pauseCanvas.SetActive(true);
 		}
 		
 		//shooting sequence
