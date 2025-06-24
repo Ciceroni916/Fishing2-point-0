@@ -41,13 +41,13 @@ public class CharacterControllerScript : MonoBehaviour
 	public GameObject BOOM, gameCanvas, pauseCanvas;
 	public Camera cam;
 	
-	private bool shooting;
+	private bool shooting, tutorial;
 	private Rigidbody rb;
-	private InputAction moveAction, spacebar, shift, z, x, q, e, lmb, rmb, esc;
-	private float moveAmount, maxForcedAngularVelocity, shootingStartTime, shootingEndTime, shootLength ;
+	private InputAction spacebar, shift, z, x, q, e, lmb, rmb, esc;
+	private float maxForcedAngularVelocity, shootingStartTime, shootingEndTime, shootLength ;
 	private Vector3 shootBeginPosition, shootEndPosition;
 
-    void Start()
+    void OnEnable()
     {
 		//no kings, no gods.
 		if (shootSpeed > 5 || shootSpeed <= 0.1f) {
@@ -58,12 +58,12 @@ public class CharacterControllerScript : MonoBehaviour
 		}
 		//not yet ferb
 		shooting = false;
+		tutorial = false;
 		
-		moveAction = playerInput.actions.FindAction("Move");
 		spacebar = playerInput.actions.FindAction("Space");
 		shift = playerInput.actions.FindAction("Shift");
 		z = playerInput.actions.FindAction("Freeze");
-		x = playerInput.actions.FindAction("Upright");
+		x = playerInput.actions.FindAction("Thaw");
 		q = playerInput.actions.FindAction("BarrelRollLeft");
 		e = playerInput.actions.FindAction("BarrelRollRight");
 		rmb = playerInput.actions.FindAction("RMB");
@@ -72,35 +72,21 @@ public class CharacterControllerScript : MonoBehaviour
 		
 		rb = GetComponent<Rigidbody>();
 		rb.maxLinearVelocity = 50.0f;
-		moveAmount = 0.01f;
     }
 
     void FixedUpdate()
     {
-		Vector2 move = moveAction.ReadValue<Vector2>();
-		move *= moveAmount;
 		Vector3 passiveForce = -Physics.gravity;
 		float up = spacebar.ReadValue<float>();
 		float down = shift.ReadValue<float>();
 		float upright = z.ReadValue<float>();
-		float stopRotation = x.ReadValue<float>();
+		float freeze = z.ReadValue<float>();
+		float thaw = x.ReadValue<float>();
 		float barrelRollLeft = q.ReadValue<float>();
 		float barrelRollRight = e.ReadValue<float>();
 		float LMB = lmb.ReadValue<float>();
 		float pause = esc.ReadValue<float>();
 		
-		if (move.x > 0) {
-			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
-		}
-		if (move.x < 0) {
-			rb.constraints = RigidbodyConstraints.None;
-		}
-		if (move.y > 0) {
-			// rb.AddForce(transform.forward);	
-		}
-		if (move.y < 0) {
-			// rb.AddForce(transform.forward * -1f);	
-		}
 		if (down > 0) {
 			passiveForce = new Vector3(0,0,0);
 		}
@@ -116,21 +102,25 @@ public class CharacterControllerScript : MonoBehaviour
 		if (upright > 0) {
 			//todo: button that sets rotation to 0,0,0 and sets drone upright
 		}
-		if (stopRotation > 0) {
-			Vector3 curRot = rb.angularVelocity;
-			Vector3 rotation = new Vector3(0,0,0);
+		if (freeze > 0 && tutorial) {
+			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+			// Vector3 curRot = rb.angularVelocity;
+			// Vector3 rotation = new Vector3(0,0,0);
 			
 			//it speed within 0.1 to -0.1 do nothing
-			if (curRot.x > 0.1 || curRot.x < -0.1) {
-				rotation.x = (curRot.x < 0) ? 0.01f : -0.01f;
-			}
-			if (curRot.y > 0.1 || curRot.y < -0.1) {
-				rotation.y = (curRot.y < 0) ? 0.01f : -0.01f;
-			}
-			if (curRot.z > 0.1 || curRot.z < -0.1) {
-				rotation.z = (curRot.z < 0) ? 0.01f : -0.01f;
-			}
-			rb.AddTorque(rotation);
+			// if (curRot.x > 0.1 || curRot.x < -0.1) {
+				// rotation.x = (curRot.x < 0) ? 0.01f : -0.01f;
+			// }
+			// if (curRot.y > 0.1 || curRot.y < -0.1) {
+				// rotation.y = (curRot.y < 0) ? 0.01f : -0.01f;
+			// }
+			// if (curRot.z > 0.1 || curRot.z < -0.1) {
+				// rotation.z = (curRot.z < 0) ? 0.01f : -0.01f;
+			// }
+			// rb.AddTorque(rotation);
+		}
+		if (thaw > 0 && tutorial) {
+			rb.constraints = RigidbodyConstraints.None;
 		}
 		if (pause > 0) {
 			Time.timeScale = 0;
@@ -188,5 +178,17 @@ public class CharacterControllerScript : MonoBehaviour
 		if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 100f, layerMask)) {
 			GameObject currentParticleSystem = Instantiate(BOOM, hit.point, new Quaternion(0,0,0,0));
 		}
+	}
+	
+	//receiver for tutorila menu button
+	private void Tutorial() {
+		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+		tutorial = true;
+	}
+	
+	//received from easy button
+	private void Easy() {
+		rb.constraints = RigidbodyConstraints.None;
+		tutorial = false;
 	}
 }

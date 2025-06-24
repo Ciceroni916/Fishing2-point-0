@@ -45,7 +45,7 @@ public class LineDrawer : MonoBehaviour
         RaycastHit hit;
 		LayerMask layerMask = LayerMask.GetMask("MakeshiftUI");
 		if (RMB > 0) {
-			//player is currently looking around, remove crosshair movement to let player know htat they cannot rotate drone while looking around
+			//player is currently looking around, remove crosshair movement to let player know that they cannot rotate drone while looking around
 			lrCrosshair.positionCount = 0;
 		} else if (Physics.Raycast(ray, out hit, 10.0f, layerMask)) {
 			if (hit.collider.gameObject.tag.Equals("MakeshiftUILinebreaker")) {
@@ -61,12 +61,16 @@ public class LineDrawer : MonoBehaviour
 				lrCrosshair.SetPosition(1, hit.point);
 				
 				if (distance < radiusActual) {
-					//cursor is inside of circle, do nothing
+					//cursor is inside of circle, make it white
+					lrCrosshair.startColor = Color.white;
+					lrCrosshair.endColor = Color.white;
 				} else if (RMB < 1.0f) {
 					/*cursor is outside of circle.
 					1. Check by how much verically and horizontally.
 					2. rotate around y coordinate by how further away cursor.x from circle.
 					3. rotate around x coordinate by how further away cursor.y from circle.*/
+					lrCrosshair.startColor = Color.green;
+					lrCrosshair.endColor = Color.green;
 					float verticalSpeed = CalculateSpeed(distanceY, radiusActual);
 					float horizontalSpeed = CalculateSpeed(distanceX, radiusActual);;
 					if (localHit.y < 0) {

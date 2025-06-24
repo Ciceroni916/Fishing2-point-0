@@ -12,5 +12,6 @@ public class playButtonScript : MonoBehaviour
 		player.SetActive(true);
 		playerCanvas.SetActive(true);
 		menuCanvas.SetActive(false);
+		player.BroadcastMessage("Easy");
 	}
 }
