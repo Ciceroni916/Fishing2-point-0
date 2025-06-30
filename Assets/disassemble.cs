@@ -13,11 +13,7 @@ public class dissasembler : MonoBehaviour
 	
 	void Disassemble(Vector3 boomSpherePos) {
 		//1. Make every rigidbody-containing part of turret affected by unity physics.
-		foreach (Transform child in transform) {
-			if (child.TryGetComponent<Rigidbody>(out Rigidbody rb)) {
-				rb.isKinematic = false;
-			}
-		}
+		RecursiveKineticDisable(this.gameObject.transform);
 		//2. Disable all scripts by calling a function within them.
 		this.BroadcastMessage("BoomDisable",null,SendMessageOptions.DontRequireReceiver);
 		//2. In 3 seconds, end it all.
@@ -31,6 +27,15 @@ public class dissasembler : MonoBehaviour
 				DestroyImmediate(transform.GetChild(0).gameObject);
 			}
 			Destroy(this.gameObject);
+		}
+	}
+	
+	private void RecursiveKineticDisable(Transform tr) {
+		if (tr.TryGetComponent<Rigidbody>(out Rigidbody rb)) {
+			rb.isKinematic = false;
+		}
+		foreach (Transform trNext in tr) {
+			RecursiveKineticDisable(trNext);
 		}
 	}
 }

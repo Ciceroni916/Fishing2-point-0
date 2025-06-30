@@ -12,7 +12,7 @@ public class seekplayer : MonoBehaviour
 	private float noticedIterator = 0.01f;
 	private Transform target;
 	// private LineRenderer threat;
-	private GameObject rememberedTarget;
+	private GameObject rememberedTarget, beam;
 	private float noticedTimer;
 	private bool targetNoticed;
 	private float exterminationTimer = 0.0f;
@@ -24,8 +24,9 @@ public class seekplayer : MonoBehaviour
     {
 		look = transform.parent.GetComponent<looker>();
 		target = look.target;
-		// threat = look.threat;
 		rememberedTarget = null;
+		//first child = aiming thingy with red beam. it is disabled each time player is behind cover
+		beam = this.gameObject.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class seekplayer : MonoBehaviour
 		
 		//if noticed nothing; outside of visible range
 		if (!Physics.Raycast(transform.position, targetDirection, out potentialTarget, perceptionLength, mask) && targetNoticed) {
+			beam.SetActive(true);
 			if (noticedTimer < 5.0f) noticedTimer += noticedIterator;
 			if (noticedTimer > 5.0f && targetNoticed) {
 				look.TargetLost();
@@ -54,10 +56,11 @@ public class seekplayer : MonoBehaviour
         if (alignment > 0.85f){
 			if (potentialTarget.transform != null && potentialTarget.transform.gameObject.tag == "Player") {
 				//player is in front of turret and not behind cover
+				beam.SetActive(true);
 				noticedTimer = 0.0f;
 				if (!targetNoticed){
 					look.TargetNoticed();
-					Debug.Log("TARGET LOCKED");
+					Debug.Log("TARGET LOCKED BY " + gameObject.name);
 					//message is sending to the parent because parent has UIController
 					rememberedTarget = potentialTarget.transform.parent.gameObject;
 				}
@@ -65,6 +68,7 @@ public class seekplayer : MonoBehaviour
 				rememberedTarget.SendMessage("BecomeTargeted", gameObject);
 			} else {
 				//player is behind cover
+				beam.SetActive(false);
 				if (noticedTimer < 5.0f) noticedTimer += noticedIterator;
 				if (noticedTimer >= 5.0f && targetNoticed) {
 					look.TargetLost();
@@ -76,13 +80,10 @@ public class seekplayer : MonoBehaviour
 		if (noticedTimer > 5.0f) {
 			targetNoticed = false;
 			exterminationTimer = 0.0f;
-			// threat.SetPosition(0, new Vector3(0,0,0));
-			// threat.SetPosition(1, new Vector3(0,0,0));
 		}
 		
 		if (exterminationTimer > 5.0f) {
-			Destroy(target.gameObject);
-			Debug.Log("TARGET DESTROYED.");
+			DestroyDrone();
 		}
     }
 	
@@ -111,5 +112,10 @@ public class seekplayer : MonoBehaviour
 	void OnDestroy() {
 		LoseTarget();
 		Debug.Log("TARGET LOST: I AM DEAD.");
+	}
+	
+	private void DestroyDrone() {
+		Destroy(target.gameObject);
+		Debug.Log("TARGET DESTROYED.");
 	}
 }

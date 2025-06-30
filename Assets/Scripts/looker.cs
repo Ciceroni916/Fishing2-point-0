@@ -10,7 +10,7 @@ public class looker : MonoBehaviour
 	//after noticing player speed of looking at him. does nothing ;c
     public float speed = 1.0f;
 	//passive rotation around itself
-	public float rotationSpeed = 1.0f;
+	public float rotationSpeed = 0.33f;
 	// public LineRenderer threat;
 	
 	private bool targetNoticed, isAngled;
@@ -27,20 +27,18 @@ public class looker : MonoBehaviour
 	}
 	
 	void FixedUpdate(){
-		Vector3 targetDirection = target.position - transform.position;
 		if (targetNoticed) {
 			//Look at player
 			// Determine which direction to rotate towards
-			//Vector3 targetDirection = target.position - transform.position;
+			Vector3 targetDirection = target.position - transform.position;
+			Debug.DrawRay(transform.position, targetDirection, Color.yellow);
 	
 			// The step size is equal to speed times frame time.
 			float singleStep = speed * Time.deltaTime;
 	
 			// Rotate the forward vector towards the target direction by one step
 			Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-	
-			// Draw a ray pointing at our target in
-			Debug.DrawRay(transform.position, newDirection, Color.red);
+			Debug.DrawRay(transform.position, newDirection, Color.blue);
 	
 			// Calculate a rotation a step closer to the target and applies rotation to this object
 			transform.rotation = Quaternion.LookRotation(newDirection);
@@ -52,13 +50,13 @@ public class looker : MonoBehaviour
 		} else {
 			//rotates clockwise
 			Vector3 rotation = transform.eulerAngles;
-			if (!isAngled) {
+			if (isAngled) {
+				rotation.y = 0.0f;
+				rotation.x += rotationSpeed;
+			} else {
 				//turret is angled vertically
 				rotation.x = 0.0f;
 				rotation.y += rotationSpeed;
-			} else {
-				rotation.y = 0.0f;
-				rotation.x += rotationSpeed;
 			}
 			transform.eulerAngles = rotation;
 		}
