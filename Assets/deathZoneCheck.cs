@@ -8,6 +8,7 @@ using UnityEngine;
 //i am not a good programmer 
 public class deathZoneCheck : MonoBehaviour
 {
+	
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -15,7 +16,7 @@ public class deathZoneCheck : MonoBehaviour
         if (pos.y < 0 || pos.y > 750
 		|| pos.x > 500 || pos.x < -500
 		|| pos.z > 500 || pos.z < -500) {
-			Destroy(gameObject);
+			this.BroadcastMessage("GameOverSequenceDeathZone");
 		}
     }
 }

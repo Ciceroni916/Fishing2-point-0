@@ -16,6 +16,7 @@ public class seekplayer : MonoBehaviour
 	private float noticedTimer;
 	private bool targetNoticed;
 	private float exterminationTimer = 0.0f;
+	public GameObject player;
 	
 	private looker look;
 	
@@ -35,9 +36,9 @@ public class seekplayer : MonoBehaviour
 		Vector3 targetDirection = target.position - transform.position;
 		RaycastHit potentialTarget;
 		float alignment = Vector3.Dot(transform.up.normalized, targetDirection.normalized);
-		LayerMask mask = LayerMask.GetMask("Terrain", "Player", "Enemy");
-		
-		Debug.DrawRay(this.transform.position, Vector3.forward * perceptionLength, new Color(255,0,0,100), 0.1f);
+		// LayerMask mask = LayerMask.GetMask("Terrain", "Player", "Enemy");
+		LayerMask mask = LayerMask.GetMask("Terrain", "Player");
+		// Debug.DrawRay(this.transform.position, Vector3.forward * perceptionLength, new Color(255,0,0,100), 0.1f);
 		
 		//if noticed nothing; outside of visible range
 		if (!Physics.Raycast(transform.position, targetDirection, out potentialTarget, perceptionLength, mask) && targetNoticed) {
@@ -53,6 +54,7 @@ public class seekplayer : MonoBehaviour
 		
 		if (targetNoticed && potentialTarget.transform.gameObject.tag.Equals("Player") && alignment > 0.9f) exterminationTimer += 0.01f;
 		//check if angle between barrel and Player is small enough; check if raycast towards the player is not interrupted by a terrain
+		Debug.Log("tag " + potentialTarget.transform.gameObject.tag);
         if (alignment > 0.85f){
 			if (potentialTarget.transform != null && potentialTarget.transform.gameObject.tag == "Player") {
 				//player is in front of turret and not behind cover
@@ -115,7 +117,7 @@ public class seekplayer : MonoBehaviour
 	}
 	
 	private void DestroyDrone() {
-		Destroy(target.gameObject);
+		player.BroadcastMessage("GameOverSequence", this.gameObject);
 		Debug.Log("TARGET DESTROYED.");
 	}
 }

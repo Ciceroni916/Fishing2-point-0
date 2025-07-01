@@ -38,7 +38,7 @@ public class CharacterControllerScript : MonoBehaviour
     public PlayerInput playerInput;
 	public Transform barrel;
 	public float shootSpeed, moveSpeed = 2.0f;
-	public GameObject BOOM, gameCanvas, pauseCanvas;
+	public GameObject BOOM, gameCanvas, pauseCanvas, gameOverScreen;
 	public Camera cam;
 	
 	private bool shooting, tutorial;
@@ -56,9 +56,9 @@ public class CharacterControllerScript : MonoBehaviour
 		if (moveSpeed < 2.0f) {
 			moveSpeed = 2.0f;
 		}
+		tutorial = false;
 		//not yet ferb
 		shooting = false;
-		tutorial = false;
 		
 		spacebar = playerInput.actions.FindAction("Space");
 		shift = playerInput.actions.FindAction("Shift");
@@ -99,25 +99,8 @@ public class CharacterControllerScript : MonoBehaviour
 		if (barrelRollRight > 0) {
 			rb.AddRelativeTorque(new Vector3(0,0,-0.05f));
 		}
-		if (upright > 0) {
-			//todo: button that sets rotation to 0,0,0 and sets drone upright
-		}
 		if (freeze > 0 && tutorial) {
 			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
-			// Vector3 curRot = rb.angularVelocity;
-			// Vector3 rotation = new Vector3(0,0,0);
-			
-			//it speed within 0.1 to -0.1 do nothing
-			// if (curRot.x > 0.1 || curRot.x < -0.1) {
-				// rotation.x = (curRot.x < 0) ? 0.01f : -0.01f;
-			// }
-			// if (curRot.y > 0.1 || curRot.y < -0.1) {
-				// rotation.y = (curRot.y < 0) ? 0.01f : -0.01f;
-			// }
-			// if (curRot.z > 0.1 || curRot.z < -0.1) {
-				// rotation.z = (curRot.z < 0) ? 0.01f : -0.01f;
-			// }
-			// rb.AddTorque(rotation);
 		}
 		if (thaw > 0 && tutorial) {
 			rb.constraints = RigidbodyConstraints.None;
@@ -190,5 +173,19 @@ public class CharacterControllerScript : MonoBehaviour
 	private void Easy() {
 		rb.constraints = RigidbodyConstraints.None;
 		tutorial = false;
+	}
+	
+	private void GameOverSequenceDeathZone() {
+		gameOverScreen.SetActive(true);
+		gameOverScreen.BroadcastMessage("SetGameOverReason", "Connection with drone reached 100% packet loss.\nSimilar data suggest drone went outside connection zone.\nGame Over.");
+		transform.parent.gameObject.SetActive(false);
+	}
+	
+	//game over sequence
+	private void GameOverSequence(GameObject turret) {
+		gameOverScreen.SetActive(true);
+		Vector3 pos = turret.transform.position;
+		gameOverScreen.BroadcastMessage("SetGameOverReason", "Connection with drone reached 100% packet loss.\nLast intercepted message: \"Target destroyed\". \nMessage origin: " + pos.x + " " + pos.y + " " + pos.z + "\nGame Over.");
+		transform.parent.gameObject.SetActive(false);
 	}
 }
