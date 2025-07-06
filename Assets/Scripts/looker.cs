@@ -6,24 +6,17 @@ using UnityEngine;
 
 public class looker : MonoBehaviour
 {
-    public Transform target;
-	//after noticing player speed of looking at him. does nothing ;c
+    private Transform target;
+	//after noticing player speed of change rotation in effort to follow him. hard value = 1.0f; easy value = 0.33f;
     public float speed = 1.0f;
 	//passive rotation around itself
 	public float rotationSpeed = 0.33f;
-	// public LineRenderer threat;
-	
-	private bool targetNoticed, isAngled;
+	//this value changed in seekplayer.cs. false = rotate around yoursef, true = turret tries to follow 
+	private bool targetNoticed;
 	
 	void Start() {
+		target = GameObject.FindWithTag("Player").transform;
 		targetNoticed = false;
-		if ((transform.eulerAngles.z > 89.0f && transform.eulerAngles.z < 91) || (transform.eulerAngles.z > 269 && transform.eulerAngles.z < 271)) {
-			//turret in | position
-			isAngled = true;
-		} else {
-			//turret in - position
-			isAngled = false;
-		}
 	}
 	
 	void FixedUpdate(){
@@ -49,16 +42,22 @@ public class looker : MonoBehaviour
 			// threat.SetPosition(1, target.position);
 		} else {
 			//rotates clockwise
-			Vector3 rotation = transform.eulerAngles;
-			if (isAngled) {
-				rotation.y = 0.0f;
-				rotation.x += rotationSpeed;
-			} else {
-				//turret is angled vertically
-				rotation.x = 0.0f;
-				rotation.y += rotationSpeed;
-			}
-			transform.eulerAngles = rotation;
+			// Vector3 rotation = transform.eulerAngles;
+			// if (onWall) {
+				// rotation.y = 0.0f;
+				// rotation.x += rotationSpeed;
+			// } else {
+				// rotation.x = 0.0f;
+				// rotation.y += rotationSpeed;
+			// }
+			// transform.eulerAngles = rotation;
+			
+			Quaternion startRotation = transform.rotation;
+			Quaternion targetRotation;
+			startRotation.eulerAngles = new Vector3(0,startRotation.eulerAngles.y,0);
+			targetRotation = transform.rotation * Quaternion.Euler(0, rotationSpeed, 0);
+			transform.rotation = Quaternion.Slerp(startRotation, targetRotation, 1);
+			transform.rotation = targetRotation;
 		}
 	}
 	
@@ -67,6 +66,11 @@ public class looker : MonoBehaviour
 	}
 	
 	public void TargetLost(){
+		//when target is lost turret snaps towards its original rotation. It would be better if it was only snapping with its .x and .z coords, but changing values in targetRotation variable does not seems to work
+		Quaternion startRotation = transform.rotation;
+		Vector3 parentRotation = transform.parent.rotation.eulerAngles;
+		Quaternion targetRotation = Quaternion.Euler(parentRotation.x, parentRotation.y, parentRotation.z);
+		transform.rotation = Quaternion.Slerp(startRotation, targetRotation, 1);
 		targetNoticed = false;
 	}
 	

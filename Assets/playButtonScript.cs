@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playButtonScript : MonoBehaviour
 {
-    public GameObject menu, menuCanvas, player, playerCanvas;
+    public GameObject menu, menuCanvas, player, playerCanvas, enemiesParent;
 	
 	//it begins
 	void ItBegins() {
@@ -12,6 +12,7 @@ public class playButtonScript : MonoBehaviour
 		player.SetActive(true);
 		playerCanvas.SetActive(true);
 		menuCanvas.SetActive(false);
+		enemiesParent.SetActive(true);
 		player.BroadcastMessage("Easy");
 	}
 }
