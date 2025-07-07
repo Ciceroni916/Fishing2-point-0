@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MakeshiftUILinebreaker
   - Enemy
+  - Terrain
   layers:
   - Default
   - TransparentFX

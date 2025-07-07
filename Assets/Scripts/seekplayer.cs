@@ -9,17 +9,17 @@ public class seekplayer : MonoBehaviour
 	
 	public float perceptionLength = 50.0f;
 	
-	// private float noticedIterator = 0.01f;
-	// private float exterminationIterator = 0.01f;
-	private float exterminationIterator = 10f;
-	private float noticedIterator = 10f;
+	private float noticedIterator = 0.01f;
+	private float exterminationIterator = 0.01f;
+	// private float exterminationIterator = 10f;
+	// private float noticedIterator = 10f;
 	private Transform target;
 	// private LineRenderer threat;
-	private GameObject rememberedTarget, beam;
+	private GameObject rememberedTarget, player;
 	private float noticedTimer;
 	private bool targetNoticed;
 	private float exterminationTimer = 0.0f;
-	private GameObject player;
+	private float beamLengthScale;
 	
 	private looker look;
 	
@@ -30,8 +30,6 @@ public class seekplayer : MonoBehaviour
 		player = GameObject.FindWithTag("Player");
 		target = player.transform;
 		rememberedTarget = null;
-		//first child = aiming thingy with red beam. it is disabled each time player is behind cover
-		beam = this.gameObject.transform.GetChild(0).gameObject;
     }
 
     // Update is called once per frame
@@ -40,14 +38,10 @@ public class seekplayer : MonoBehaviour
 		Vector3 targetDirection = target.position - transform.position;
 		RaycastHit potentialTarget;
 		float alignment = Vector3.Dot(transform.up.normalized, targetDirection.normalized);
-		// LayerMask mask = LayerMask.GetMask("Terrain", "Player", "Enemy");
 		LayerMask mask = LayerMask.GetMask("Terrain", "Player");
-		// Debug.DrawRay(this.transform.position, Vector3.forward * perceptionLength, new Color(255,0,0,100), 0.1f);
-		//note: unoptimized
-		beam.SetActive(true);
+		Debug.DrawRay(this.transform.position, targetDirection * perceptionLength, new Color(255,0,0,100), 0.1f);
 		//if noticed nothing; outside of visible range
 		if (!Physics.Raycast(transform.position, targetDirection, out potentialTarget, perceptionLength, mask) && targetNoticed) {
-			
 			if (noticedTimer < 5.0f) noticedTimer += noticedIterator;
 			if (noticedTimer > 5.0f && targetNoticed) {
 				Debug.Log("TARGET LOST: OUTSIDE OF VISIBLE RANGE.");
@@ -73,7 +67,6 @@ public class seekplayer : MonoBehaviour
 				rememberedTarget.SendMessage("BecomeTargeted", gameObject);
 			} else {
 				//player is behind cover
-				beam.SetActive(false);
 				if (noticedTimer < 5.0f) noticedTimer += noticedIterator;
 				if (noticedTimer >= 5.0f && targetNoticed) {
 					Debug.Log("TARGET LOST: HIDING BEHIND COVER.");

@@ -13,13 +13,29 @@ public class looker : MonoBehaviour
 	public float rotationSpeed = 0.33f;
 	//this value changed in seekplayer.cs. false = rotate around yoursef, true = turret tries to follow 
 	private bool targetNoticed;
+	private float perceptionLength = 50.0f;
+	private GameObject beam;
 	
 	void Start() {
 		target = GameObject.FindWithTag("Player").transform;
 		targetNoticed = false;
+		beam = this.gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+		//todo: randomize initial rotation
+		//todo: add flashlight to drone
 	}
 	
 	void FixedUpdate(){
+		//if beam hitting cover then lower its length to only reach hit point.
+		RaycastHit potentialTarget;
+		LayerMask mask = LayerMask.GetMask("Terrain");
+		Physics.Raycast(transform.position, transform.forward, out potentialTarget, perceptionLength, mask);
+		float hitDistance = potentialTarget.distance;
+		Debug.DrawRay(transform.position, transform.forward, Color.blue);
+		if (potentialTarget.transform != null && potentialTarget.transform.gameObject.tag.Equals("Terrain") && hitDistance < perceptionLength) {
+			beam.transform.localScale = new Vector3(beam.transform.localScale.x, beam.transform.localScale.y, hitDistance);
+		} else {
+			beam.transform.localScale = new Vector3(beam.transform.localScale.x, beam.transform.localScale.y, perceptionLength * 2);
+		}
 		if (targetNoticed) {
 			//Look at player
 			// Determine which direction to rotate towards
@@ -31,7 +47,6 @@ public class looker : MonoBehaviour
 	
 			// Rotate the forward vector towards the target direction by one step
 			Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-			Debug.DrawRay(transform.position, newDirection, Color.blue);
 	
 			// Calculate a rotation a step closer to the target and applies rotation to this object
 			transform.rotation = Quaternion.LookRotation(newDirection);
