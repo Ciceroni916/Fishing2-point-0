@@ -75,6 +75,46 @@ MonoBehaviour:
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+--- !u!114 &-1012516135917440638
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c23e3b12dc18c42a140437e53d3951, type: 3}
+  m_Name: Tonemapping
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 1
+  neutralHDRRangeReductionMode:
+    m_OverrideState: 0
+    m_Value: 2
+  acesPreset:
+    m_OverrideState: 1
+    m_Value: 5
+  hueShiftAmount:
+    m_OverrideState: 0
+    m_Value: 0
+  detectPaperWhite:
+    m_OverrideState: 0
+    m_Value: 0
+  paperWhite:
+    m_OverrideState: 0
+    m_Value: 0
+  detectBrightnessLimits:
+    m_OverrideState: 0
+    m_Value: 0
+  minNits:
+    m_OverrideState: 0
+    m_Value: 0
+  maxNits:
+    m_OverrideState: 0
+    m_Value: 396
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,6 +132,7 @@ MonoBehaviour:
   - {fileID: -4041131003914029734}
   - {fileID: 7769595528765151383}
   - {fileID: -6475262052811471581}
+  - {fileID: -1012516135917440638}
 --- !u!114 &7769595528765151383
 MonoBehaviour:
   m_ObjectHideFlags: 3
