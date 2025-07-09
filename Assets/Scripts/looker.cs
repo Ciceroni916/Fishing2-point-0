@@ -12,7 +12,7 @@ public class looker : MonoBehaviour
 	//passive rotation around itself
 	public float rotationSpeed = 0.33f;
 	//this value changed in seekplayer.cs. false = rotate around yoursef, true = turret tries to follow 
-	private bool targetNoticed;
+	private bool targetNoticed, randomizeInitialRotation = true;
 	private float perceptionLength = 50.0f;
 	private GameObject beam;
 	
@@ -20,8 +20,14 @@ public class looker : MonoBehaviour
 		target = GameObject.FindWithTag("Player").transform;
 		targetNoticed = false;
 		beam = this.gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
-		//todo: randomize initial rotation
-		//todo: add flashlight to drone
+		if (randomizeInitialRotation) {
+			Quaternion startRotation = transform.rotation;
+			Quaternion targetRotation;
+			startRotation.eulerAngles = new Vector3(0,startRotation.eulerAngles.y,0);
+			targetRotation = transform.rotation * Quaternion.Euler(0, Random.Range(0,359), 0);
+			transform.rotation = Quaternion.Slerp(startRotation, targetRotation, 1);
+			transform.rotation = targetRotation;
+		}
 	}
 	
 	void FixedUpdate(){
@@ -50,23 +56,7 @@ public class looker : MonoBehaviour
 	
 			// Calculate a rotation a step closer to the target and applies rotation to this object
 			transform.rotation = Quaternion.LookRotation(newDirection);
-			
-			//draw a threatening line towards player
-			//worldspace
-			// threat.SetPosition(0, transform.position);
-			// threat.SetPosition(1, target.position);
 		} else {
-			//rotates clockwise
-			// Vector3 rotation = transform.eulerAngles;
-			// if (onWall) {
-				// rotation.y = 0.0f;
-				// rotation.x += rotationSpeed;
-			// } else {
-				// rotation.x = 0.0f;
-				// rotation.y += rotationSpeed;
-			// }
-			// transform.eulerAngles = rotation;
-			
 			Quaternion startRotation = transform.rotation;
 			Quaternion targetRotation;
 			startRotation.eulerAngles = new Vector3(0,startRotation.eulerAngles.y,0);
@@ -82,10 +72,16 @@ public class looker : MonoBehaviour
 	
 	public void TargetLost(){
 		//when target is lost turret snaps towards its original rotation. It would be better if it was only snapping with its .x and .z coords, but changing values in targetRotation variable does not seems to work
+		//1. snap towards (relative) horizontal axis
 		Quaternion startRotation = transform.rotation;
 		Vector3 parentRotation = transform.parent.rotation.eulerAngles;
 		Quaternion targetRotation = Quaternion.Euler(parentRotation.x, parentRotation.y, parentRotation.z);
 		transform.rotation = Quaternion.Slerp(startRotation, targetRotation, 1);
+		//2. randomize direction
+		startRotation.eulerAngles = new Vector3(0,startRotation.eulerAngles.y,0);
+		targetRotation = transform.rotation * Quaternion.Euler(0, Random.Range(0,359), 0);
+		transform.rotation = Quaternion.Slerp(startRotation, targetRotation, 1);
+		transform.rotation = targetRotation;
 		targetNoticed = false;
 	}
 	
