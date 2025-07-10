@@ -13,7 +13,8 @@ wifi: ping 0
 
 public class UIControlelr : MonoBehaviour
 {
-	public TMP_Text horizontal, vertical, altitude, altitudeMeasure, altitudeSign, xCoordSign, zCoordSign, xCoord, zCoord, lockedOn;
+	public TMP_Text horizontal, vertical, altitude, altitudeMeasure, altitudeSign, xCoordSign, zCoordSign, xCoord, zCoord, lockedOn, turretCount;
+	public Transform Enemies;
 	public Rigidbody rb;
 	public RectTransform raw;
 	public AudioSource noise, backgroundStatic, dangerousBeep;
@@ -24,7 +25,7 @@ public class UIControlelr : MonoBehaviour
 	private List<TMP_Text> warningsTMP;
 	private List<float> turretsExtermination;
 	private int lockedOnFrequency = 50;
-	private int counter;
+	private int counter, turretAmount;
 	
     // Start is called before the first frame update
     void Start()
@@ -96,6 +97,14 @@ public class UIControlelr : MonoBehaviour
 		}
 		xCoord.text = (Mathf.Abs(dronePos.x)/10000000).ToString("0.0000000");
 		zCoord.text = (Mathf.Abs(dronePos.z)/10000000).ToString("0.0000000");
+		//ah yes the update loop abuse
+		if (Enemies.childCount != turretAmount) {
+			turretAmount = Enemies.childCount;
+			if (turretAmount <= 5) {
+				turretCount.gameObject.SetActive(true);
+				// turretCount.text = ("Turret remaining " + turretAmount + " Closest turret + );
+			}
+		}
     }
 	
 	public void BecomeTargeted(GameObject go){

@@ -38,4 +38,11 @@ public class dissasembler : MonoBehaviour
 			RecursiveKineticDisable(trNext);
 		}
 	}
+	
+	//when easy mode is selected there is a 50% chance that any individual turret will delete themself
+	public void Easy() {
+		if (Random.Range(0f,1f) > 0.5f) {
+			Destroy(this.gameObject);
+		}
+	}
 }

@@ -175,6 +175,11 @@ public class CharacterControllerScript : MonoBehaviour
 		tutorial = false;
 	}
 	
+	private void Hard() {
+		rb.constraints = RigidbodyConstraints.None;
+		tutorial = false;
+	}
+	
 	private void GameOverSequenceDeathZone() {
 		gameOverScreen.SetActive(true);
 		gameOverScreen.BroadcastMessage("SetGameOverReason", "Connection with drone reached 100% packet loss.\nSimilar data suggest drone went outside connection zone.\nGame Over.");

@@ -14,5 +14,6 @@ public class playButtonScript : MonoBehaviour
 		menuCanvas.SetActive(false);
 		enemiesParent.SetActive(true);
 		player.BroadcastMessage("Easy");
+		enemiesParent.BroadcastMessage("Easy");
 	}
 }
