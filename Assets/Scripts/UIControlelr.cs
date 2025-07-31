@@ -15,6 +15,7 @@ public class UIControlelr : MonoBehaviour
 {
 	public TMP_Text horizontal, vertical, altitude, altitudeMeasure, altitudeSign, xCoordSign, zCoordSign, xCoord, zCoord, lockedOn, turretCount;
 	public Transform Enemies;
+	public GameObject player;
 	public Rigidbody rb;
 	public RectTransform raw;
 	public AudioSource noise, backgroundStatic, dangerousBeep;
@@ -97,13 +98,27 @@ public class UIControlelr : MonoBehaviour
 		}
 		xCoord.text = (Mathf.Abs(dronePos.x)/10000000).ToString("0.0000000");
 		zCoord.text = (Mathf.Abs(dronePos.z)/10000000).ToString("0.0000000");
-		//ah yes the update loop abuse
+		//set part of interace active that says where the closest enemy is and i am so tired
 		if (Enemies.childCount != turretAmount) {
 			turretAmount = Enemies.childCount;
-			if (turretAmount <= 5) {
-				turretCount.gameObject.SetActive(true);
-				// turretCount.text = ("Turret remaining " + turretAmount + " Closest turret + );
+			if (turretAmount <= 10) {
+				if (!turretCount.gameObject.activeSelf) {
+					turretCount.gameObject.SetActive(true);
+				}
 			}
+		}
+		//updating turret count when almost all turrets are dead
+		//updating distance to closest turret
+		//ah yes do it in the update loop G R E A T   J O B
+		if (turretCount.gameObject.activeSelf) {
+			float distanceToClosestEnemy = 10000.0f;
+			for (int i = 0; i < turretAmount; i++) {
+				float newDistance = Vector3.Distance(Enemies.GetChild(i).gameObject.transform.position, player.transform.position);
+				if (newDistance < distanceToClosestEnemy) {
+					distanceToClosestEnemy = newDistance;
+				}
+			}
+			turretCount.text = ("Turret remaining " + turretAmount + " Distance to closest enemy " + distanceToClosestEnemy);
 		}
     }
 	
@@ -129,24 +144,24 @@ public class UIControlelr : MonoBehaviour
 					warningsTMP[i].color = new Color(255, 0, 0, 100);
 				}
 			} else {
-				//flashing black
-				lockedOn.color = new Color(0, 0, 0, 100);
+				//flashing white
+				lockedOn.color = new Color(255, 255, 255, 100);
 				for (int i = 0; i < turretsGO.Count && i < warningsTMP.Count; i++) {
-					warningsTMP[i].color = new Color(0, 0, 0, 100);
+					warningsTMP[i].color = new Color(255, 255, 255, 100);
 				}
 			}
 			counter++;
 			if (counter > lockedOnFrequency) counter = 0;
 			//blacking out not needed interface elements
 			for (int i = turretsGO.Count; i < warningsTMP.Count; i++) {
-				warningsTMP[i].color = new Color(0, 0, 0, 100);
+				warningsTMP[i].color = new Color(255, 255, 255, 100);
 			}
 		} else {
 			//not being targeted
 			counter = 0;
-			lockedOn.color = new Color(0, 0, 0, 100);
+			lockedOn.color = new Color(255, 255, 255, 100);
 			for (int i = 0; i < warningsTMP.Count; i++) {
-				warningsTMP[i].color = new Color(0, 0, 0, 100);
+				warningsTMP[i].color = new Color(255, 255, 255, 100);
 			}
 		}
 		//sounds
@@ -178,5 +193,5 @@ public class UIControlelr : MonoBehaviour
 			dangerousBeep.volume = 0.0f;
 			dangerousBeep.Stop();
 		}
-	}
+	}	
 }

@@ -88,13 +88,16 @@ public class CharacterControllerScript : MonoBehaviour
 		float pause = esc.ReadValue<float>();
 		
 		if (down > 0) {
-			passiveForce = new Vector3(0,0,0);
+			passiveForce *= -moveSpeed;
 		}
 		if (up > 0) {
 			passiveForce *= moveSpeed;
 		}
 		if (barrelRollLeft > 0) {
+			//flat
 			rb.AddRelativeTorque(new Vector3(0,0,0.05f));
+			//scales from movespeed
+			//rb.AddRelativeTorque(new Vector3(0,0,moveSpeed / 40));
 		}
 		if (barrelRollRight > 0) {
 			rb.AddRelativeTorque(new Vector3(0,0,-0.05f));
@@ -173,11 +176,13 @@ public class CharacterControllerScript : MonoBehaviour
 	private void Easy() {
 		rb.constraints = RigidbodyConstraints.None;
 		tutorial = false;
+		moveSpeed = 2.0f;
 	}
 	
 	private void Hard() {
 		rb.constraints = RigidbodyConstraints.None;
 		tutorial = false;
+		moveSpeed = 4.0f;
 	}
 	
 	private void GameOverSequenceDeathZone() {

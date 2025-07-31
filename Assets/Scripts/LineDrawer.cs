@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+//this script renders lines on interface. also turns drone when cursor is outside central circle
+
 public class LineDrawer : MonoBehaviour
 {
 	public PlayerInput playerInput;
@@ -12,7 +14,7 @@ public class LineDrawer : MonoBehaviour
 	public Rigidbody rb;
 	public Transform crosshairPlane;
 	public GraphicRaycaster m_Raycaster;
-	public float radius;
+	public float radius, playerSpeedModifier = 1.0f;
 	
 	private Camera cam;
 	private InputAction rmb;
@@ -20,7 +22,7 @@ public class LineDrawer : MonoBehaviour
 	void Start() {
 		cam = Camera.main;
 		rmb = playerInput.actions.FindAction("RMB");
-		
+		if (playerSpeedModifier < 1.0f) playerSpeedModifier = 1.0f;
 		//drawing circle (I stole the formula i know no math smile)
 		float ThetaScale = 0.005f;
 		int Size;
@@ -71,8 +73,8 @@ public class LineDrawer : MonoBehaviour
 					3. rotate around x coordinate by how further away cursor.y from circle.*/
 					lrCrosshair.startColor = Color.green;
 					lrCrosshair.endColor = Color.green;
-					float verticalSpeed = CalculateSpeed(distanceY, radiusActual);
-					float horizontalSpeed = CalculateSpeed(distanceX, radiusActual);;
+					float verticalSpeed = CalculateSpeed(distanceY, radiusActual) * playerSpeedModifier * 1.5f;
+					float horizontalSpeed = CalculateSpeed(distanceX, radiusActual) * playerSpeedModifier;
 					if (localHit.y < 0) {
 						rb.AddRelativeTorque(verticalSpeed, 0, 0);
 					} else {
@@ -180,5 +182,13 @@ public class LineDrawer : MonoBehaviour
 			yEuler = yEuler - nerf * 2.0f;
 		}
 		return yEuler;
+	}
+	
+	private void Easy() {
+		playerSpeedModifier = 1.0f;
+	}
+	
+	private void Hard() {
+		playerSpeedModifier = 2.0f;
 	}
 }
