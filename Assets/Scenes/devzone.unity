@@ -99455,6 +99455,7 @@ MonoBehaviour:
   turretCount: {fileID: 2097065565}
   Enemies: {fileID: 615622189}
   player: {fileID: 173311058}
+  playerCanvas: {fileID: 1359515624}
   rb: {fileID: 173311061}
   raw: {fileID: 0}
   noise: {fileID: 1303221394}
