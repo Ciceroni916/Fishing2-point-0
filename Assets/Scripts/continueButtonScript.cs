@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class continueButtonScript : MonoBehaviour
 {
-	public GameObject gameCanvas, pauseCanvas;
+	public GameObject gameCanvas, pauseCanvas, MakeshiftUILinebreaker;
 	
     void ItContinues() {
 		pauseCanvas.SetActive(false);
 		gameCanvas.SetActive(true);
+		MakeshiftUILinebreaker.SetActive(true);
 		Time.timeScale = 1;
 	}
 }

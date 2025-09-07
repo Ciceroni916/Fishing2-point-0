@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 /*
 up:		0/+
@@ -36,15 +37,19 @@ Quaternion rotation = Quaternion.LookRotation(Vector3.right, Vector3.up);
 public class CharacterControllerScript : MonoBehaviour
 {
     public PlayerInput playerInput;
+	public TMP_Text droneFrozen;
 	public Transform barrel;
 	public float shootSpeed, moveSpeed = 2.0f;
-	public GameObject BOOM, gameCanvas, pauseCanvas, gameOverScreen;
+	public GameObject BOOM, MakeshiftUILinebreaker, gameCanvas, pauseCanvas, gameOverScreen, victoryScreen;
 	public Camera cam;
+	public AudioSource droneFanSound, droneShootSound, droneReloadSound;
+	public float fanPitchNormal = 1.0f, fanPitchHigh = 1.5f, fanPitchLow = 0.5f, fanPitchNegative = 0.25f;
 	
-	private bool shooting, tutorial;
+	private bool shooting, tutorial, sound;
 	private Rigidbody rb;
 	private InputAction spacebar, shift, z, x, q, e, lmb, rmb, esc;
-	private float maxForcedAngularVelocity, shootingStartTime, shootingEndTime, shootLength ;
+	private float maxForcedAngularVelocity, shootingStartTime, shootingEndTime, shootLength;
+	public static float globalVolume = 1.0f, standardVolumeFan, standardVolumeShoot, standardVolumeReload;
 	private Vector3 shootBeginPosition, shootEndPosition;
 
     void OnEnable()
@@ -60,6 +65,8 @@ public class CharacterControllerScript : MonoBehaviour
 		//not yet ferb
 		shooting = false;
 		
+		sound = transform.parent.GetComponent<UIController>().sound;
+		
 		spacebar = playerInput.actions.FindAction("Space");
 		shift = playerInput.actions.FindAction("Shift");
 		z = playerInput.actions.FindAction("Freeze");
@@ -72,6 +79,20 @@ public class CharacterControllerScript : MonoBehaviour
 		
 		rb = GetComponent<Rigidbody>();
 		rb.maxLinearVelocity = 50.0f;
+		
+		//drone fan sound
+		if (sound) {
+			droneFanSound.enabled = true;
+			droneShootSound.enabled = true;
+			droneReloadSound.enabled = true;
+			standardVolumeFan = droneFanSound.volume;
+			standardVolumeShoot = droneShootSound.volume;
+			standardVolumeReload = droneReloadSound.volume;
+		} else {
+			droneFanSound.enabled = false;
+			droneShootSound.enabled = false;
+			droneReloadSound.enabled = false;
+		}
     }
 
     void FixedUpdate()
@@ -87,30 +108,40 @@ public class CharacterControllerScript : MonoBehaviour
 		float LMB = lmb.ReadValue<float>();
 		float pause = esc.ReadValue<float>();
 		
-		if (down > 0) {
-			passiveForce *= -moveSpeed;
-		}
-		if (up > 0) {
-			passiveForce *= moveSpeed;
+		//standard fan pitch
+		if (sound) {
+			droneFanSound.pitch = fanPitchLow;
+			droneFanSound.volume = standardVolumeFan * globalVolume;
 		}
 		if (barrelRollLeft > 0) {
 			//flat
 			rb.AddRelativeTorque(new Vector3(0,0,0.05f));
-			//scales from movespeed
-			//rb.AddRelativeTorque(new Vector3(0,0,moveSpeed / 40));
+			if (sound) droneFanSound.pitch = fanPitchNormal;
 		}
 		if (barrelRollRight > 0) {
 			rb.AddRelativeTorque(new Vector3(0,0,-0.05f));
+			if (sound) droneFanSound.pitch = fanPitchNormal;
+		}
+		if (down > 0) {
+			passiveForce *= -moveSpeed;
+			if (sound) droneFanSound.pitch = fanPitchNegative;
+		}
+		if (up > 0) {
+			passiveForce *= moveSpeed;
+			if (sound) droneFanSound.pitch = fanPitchHigh;
 		}
 		if (freeze > 0 && tutorial) {
-			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY;
+			rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+			droneFrozen.gameObject.SetActive(true);
 		}
 		if (thaw > 0 && tutorial) {
 			rb.constraints = RigidbodyConstraints.None;
+			droneFrozen.gameObject.SetActive(false);
 		}
 		if (pause > 0) {
 			Time.timeScale = 0;
 			gameCanvas.SetActive(false);
+			MakeshiftUILinebreaker.SetActive(false);
 			pauseCanvas.SetActive(true);
 		}
 		
@@ -119,6 +150,10 @@ public class CharacterControllerScript : MonoBehaviour
 			//if not shooting, initiate sequence
 			OpenFire();
 			CreateVisualExplosionsEffect();
+			if (sound) {
+				droneShootSound.volume = standardVolumeShoot * globalVolume;
+				droneShootSound.Play();
+			}
 		}
 		if (shooting) {
 			//If already shooting, continue sequence
@@ -153,6 +188,10 @@ public class CharacterControllerScript : MonoBehaviour
 		}
 		if (fractionOfJourney > 1.0f) {
 			shooting = false;
+			if (sound) {
+				droneReloadSound.volume = standardVolumeReload * globalVolume;
+				droneReloadSound.Play();
+			}
 			return;
 		}
 	}
@@ -169,6 +208,7 @@ public class CharacterControllerScript : MonoBehaviour
 	//receiver for tutorila menu button
 	private void Tutorial() {
 		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+		droneFrozen.gameObject.SetActive(true);
 		tutorial = true;
 	}
 	
@@ -176,26 +216,36 @@ public class CharacterControllerScript : MonoBehaviour
 	private void Easy() {
 		rb.constraints = RigidbodyConstraints.None;
 		tutorial = false;
+		droneFrozen.gameObject.SetActive(false);
 		moveSpeed = 2.0f;
 	}
 	
 	private void Hard() {
 		rb.constraints = RigidbodyConstraints.None;
 		tutorial = false;
+		droneFrozen.gameObject.SetActive(false);
 		moveSpeed = 4.0f;
 	}
 	
 	private void GameOverSequenceDeathZone() {
 		gameOverScreen.SetActive(true);
-		gameOverScreen.BroadcastMessage("SetGameOverReason", "Connection with drone reached 100% packet loss.\nSimilar data suggest drone went outside connection zone.\nGame Over.");
+		gameOverScreen.BroadcastMessage("SetGameOverReason", "Connection with drone reached 100% packet loss.\nDrone went outside connection zone.\nGame Over.");
 		transform.parent.gameObject.SetActive(false);
 	}
 	
-	//game over sequence
 	private void GameOverSequence(GameObject turret) {
 		gameOverScreen.SetActive(true);
 		Vector3 pos = turret.transform.position;
 		gameOverScreen.BroadcastMessage("SetGameOverReason", "Connection with drone reached 100% packet loss.\nLast intercepted message: \"Target destroyed\". \nMessage origin: " + pos.x + " " + pos.y + " " + pos.z + "\nGame Over.");
 		transform.parent.gameObject.SetActive(false);
+	}
+	
+	private void VictorySequence() {
+		victoryScreen.SetActive(true);
+		transform.parent.gameObject.SetActive(false);
+	}
+	
+	private void VolumeChanged(float newVolume) {
+		globalVolume = newVolume;
 	}
 }

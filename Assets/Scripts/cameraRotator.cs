@@ -7,7 +7,7 @@ using UnityEngine;
 public class cameraRotator : MonoBehaviour
 {
 	public PlayerInput playerInput;
-	public bool sound;
+	private bool sound;
 	public AudioSource cameraRot;
 	public GameObject yAxisParticlesPrefab, xAxisParticlesPrefab, drone, canvas;
 	
@@ -15,6 +15,7 @@ public class cameraRotator : MonoBehaviour
 	//cameraPostPity is amount of frames script still plays sound of camera rotating after player has stopped rotating camera. Its purpose is to make that sound smoother and keep playing it even when there is a slight pause between changeing rotations of camera.
 	private int cameraPostPity;
 	private Quaternion oldRot;
+	private float globalVolume = 1.0f;
 	
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class cameraRotator : MonoBehaviour
 		cameraRot.volume = 0.0f;
 		cameraPostPity = 0;
 		oldRot = gameObject.transform.localRotation;
+		sound = transform.parent.parent.GetComponent<UIController>().sound;
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class cameraRotator : MonoBehaviour
         Vector2 targetMouseDelta = Mouse.current.delta.ReadValue()*Time.smoothDeltaTime;
 		float RMB = rmb.ReadValue<float>();
 		float MMB = mmb.ReadValue<float>();
-		float mult = 150f;
+		float mult = 15f;
 		Vector3 rot = gameObject.transform.localEulerAngles;
 		if (RMB > 0.0f) {
 			Vector3 newRot = rot;
@@ -89,17 +91,21 @@ public class cameraRotator : MonoBehaviour
 	
 	void FixedUpdate() {
 		if (sound) {
-			Quaternion rot = gameObject.transform.localRotation;
-			if (Quaternion.Angle(rot, oldRot) > 2.0f) {
+			Quaternion rotS = gameObject.transform.localRotation;
+			if (Quaternion.Angle(rotS, oldRot) > 2.0f) {
 				cameraPostPity = 10;
 			}
 			if  (cameraPostPity > 0) {
-				cameraRot.volume = 0.35f;
+				cameraRot.volume = 0.35f * globalVolume;
 				cameraPostPity--;
 			} else {
 				cameraRot.volume = 0.0f;
 			}
-			oldRot = rot;
+			oldRot = rotS;
 		}
+	}
+	
+	private void VolumeChanged(float newVolume) {
+		globalVolume = newVolume;
 	}
 }

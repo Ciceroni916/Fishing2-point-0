@@ -9,10 +9,12 @@ public class hardButtonScript : MonoBehaviour
 	//it begins
 	void ItBegins() {
 		menu.SetActive(false);
-		player.SetActive(true);
-		playerCanvas.SetActive(true);
 		menuCanvas.SetActive(false);
+		
+		playerCanvas.SetActive(true);
+		player.SetActive(true);
 		enemiesParent.SetActive(true);
+		
 		player.BroadcastMessage("Hard");
 		// enemiesParent.BroadcastMessage("Hard");
 	}

@@ -66,7 +66,7 @@ public class LineDrawer : MonoBehaviour
 					//cursor is inside of circle, make it white
 					lrCrosshair.startColor = Color.white;
 					lrCrosshair.endColor = Color.white;
-				} else if (RMB < 1.0f) {
+				} else if (RMB < 1.0f && Time.timeScale > 0) {
 					/*cursor is outside of circle.
 					1. Check by how much verically and horizontally.
 					2. rotate around y coordinate by how further away cursor.x from circle.

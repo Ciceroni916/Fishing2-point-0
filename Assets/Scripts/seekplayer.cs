@@ -50,7 +50,7 @@ public class seekplayer : MonoBehaviour
 			return;
 		}
 		
-		if (targetNoticed && potentialTarget.transform.gameObject.tag.Equals("Player") && alignment > 0.9f) exterminationTimer += exterminationIterator;
+		if (targetNoticed && potentialTarget.transform.gameObject.tag.Equals("Player") && alignment > 0.9f && Time.timeScale > 0) exterminationTimer += exterminationIterator;
 		//check if angle between barrel and Player is small enough; check if raycast towards the player is not interrupted by a terrain
 		// Debug.Log("tag " + potentialTarget.transform.gameObject.tag);
         if (alignment > 0.85f){
@@ -109,6 +109,12 @@ public class seekplayer : MonoBehaviour
 	void OnDestroy() {
 		LoseTarget();
 		Debug.Log("TARGET LOST: I AM DEAD.");
+		//last turret gives victory
+		GameObject enemyParent = GameObject.FindWithTag("EnemyParent");
+		if (enemyParent != null && enemyParent.transform.childCount <= 1) {
+			player.BroadcastMessage("VictorySequence", this.gameObject);
+			Debug.Log("W");
+		}
 	}
 	
 	private void DestroyDrone() {
