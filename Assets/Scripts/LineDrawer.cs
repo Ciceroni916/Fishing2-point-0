@@ -184,6 +184,10 @@ public class LineDrawer : MonoBehaviour
 		return yEuler;
 	}
 	
+	private void Tutorial() {
+		playerSpeedModifier = 1.0f;
+	}
+	
 	private void Easy() {
 		playerSpeedModifier = 1.0f;
 	}

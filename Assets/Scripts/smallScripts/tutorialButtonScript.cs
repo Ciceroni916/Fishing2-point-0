@@ -14,5 +14,7 @@ public class tutorialButtonScript : MonoBehaviour
 		menuCanvas.SetActive(false);
 		tutorialParent.SetActive(true);
 		player.BroadcastMessage("Tutorial");
+		player.BroadcastMessage("TSMain");
+		player.transform.position = new Vector3(200,130,-50);
 	}
 }

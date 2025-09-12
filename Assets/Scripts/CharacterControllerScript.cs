@@ -210,6 +210,12 @@ public class CharacterControllerScript : MonoBehaviour
 		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
 		droneFrozen.gameObject.SetActive(true);
 		tutorial = true;
+		moveSpeed = 2.0f;
+	}
+	
+	private void FreezeDrone() {
+		rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+		droneFrozen.gameObject.SetActive(true);
 	}
 	
 	//received from easy button

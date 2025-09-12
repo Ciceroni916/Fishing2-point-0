@@ -21,12 +21,15 @@ public class seekplayer : MonoBehaviour
 	private float exterminationTimer = 0.0f;
 	private float beamLengthScale;
 	
+	private AudioSource crushSound;
+	
 	private looker look;
 	
     // Start is called before the first frame update
     void Start()
     {
 		look = transform.parent.GetComponent<looker>();
+		crushSound = GetComponent<AudioSource>();
 		player = GameObject.FindWithTag("Player");
 		target = player.transform;
 		rememberedTarget = null;
@@ -103,6 +106,8 @@ public class seekplayer : MonoBehaviour
 	
 	void OnDisable() {
 		LoseTarget();
+		crushSound.volume = crushSound.volume * CharacterControllerScript.globalVolume;
+		crushSound.Play();
 		Debug.Log("TARGET LOST: I AM HOLLOW.");
 	}
 	

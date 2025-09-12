@@ -15,6 +15,7 @@ public class hardButtonScript : MonoBehaviour
 		player.SetActive(true);
 		enemiesParent.SetActive(true);
 		
+		player.transform.position = new Vector3(12,90,8);
 		player.BroadcastMessage("Hard");
 		// enemiesParent.BroadcastMessage("Hard");
 	}
